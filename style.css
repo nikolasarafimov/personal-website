@@ -129,7 +129,6 @@ body.light{
     pointer-events: none;
 }
 
-@media (max-width: 768px) {
     .home {
         position: relative;
         width: 100%;
@@ -187,7 +186,7 @@ body.light{
         animation: slideLeft 1s ease forwards;
         animation-delay: 1s;
     }
-}
+
 
 .biography{
     display: flex;
@@ -556,5 +555,34 @@ body.light{
 
     .lightDark-mode{
         margin-right: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .home {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        height: auto;
+        padding: 50px 5% 30px;
+    }
+
+    .home-pic img {
+        margin: 0 0 20px 0;
+        width: 80vw;
+        max-width: 300px;
+    }
+
+    .home-text h1 {
+        font-size: 36px;
+    }
+
+    .home-text h3 {
+        font-size: 22px;
+    }
+
+    .home-text p {
+        font-size: 14px;
+        padding: 0 15px;
     }
 }
