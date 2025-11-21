@@ -1,50 +1,121 @@
 <!DOCTYPE html>
-<html lang="mk">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сарафимов портфолио</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Underdog&display=swap" rel="stylesheet">
-    <link rel="icon" href="./images/Лого.png">
+    <meta charset="UTF-8" />
+    <title>Nikola Sarafimov | Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header class="header">
-        <a href="index.html" class="logo">Сарафимов Портфолио</a>
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+<!-- NAVBAR -->
+<header class="fixed inset-x-0 top-0 z-50 bg-slate-950/80 backdrop-blur border-b border-slate-800">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg border border-emerald-400 flex items-center justify-center text-xs font-semibold tracking-widest">
+                NS
+            </div>
+            <span class="font-semibold tracking-tight text-sm sm:text-base">
+          Nikola Sarafimov
+        </span>
+        </a>
 
-        <nav class="nav-links">
-            <a href="index.html" style="--i:1;">ПОЧЕТНА</a>
-            <a href="Biography.html" style="--i:2;">БИОГРАФИЈА</a>
-            <a href="Skills.html" style="--i:3;">ВЕШТИНИ</a>
-            <a href="Portfolio.html" style="--i:4;">ПОРТФОЛИО</a>
-            <a href="Contact.html" style="--i:5;" class="active">КОНТАКТ</a>
-        </nav>
-
-        <div class="lightDark-mode">
-            <i class='bx bx-moon moon' ></i>
-            <i class='bx bx-sun sun' ></i>
+        <div class="hidden md:flex items-center gap-6 text-sm">
+            <a href="index.html" class="hover:text-emerald-300 transition">Home</a>
+            <a href="biography.html" class="hover:text-emerald-300 transition">Biography</a>
+            <a href="skills.html" class="hover:text-emerald-300 transition">Skills</a>
+            <a href="portfolio.html" class="hover:text-emerald-300 transition">Portfolio</a>
+            <a href="contact.html" class="text-emerald-400 font-medium">Contact</a>
         </div>
 
-        <div class="bx bx-menu" id="menu-icon"></div>
-    </header>
+        <button id="navToggle" class="md:hidden inline-flex items-center justify-center p-2 rounded-md border border-slate-700">
+            <span class="sr-only">Open main menu</span>
+            <svg id="navIconOpen" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="navIconClose" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </nav>
 
-    <section class="contact" id="contact">
-        <h2 class="heading">Контакт</h2>
-        <p>sarafimov.nikola12345@gmail.com</p>
-        <p>nikola.sarafimov@students.finki.ukim.mk</p>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-800">
+        <div class="px-4 py-3 space-y-2 text-sm">
+            <a href="index.html" class="block hover:text-emerald-300">Home</a>
+            <a href="biography.html" class="block hover:text-emerald-300">Biography</a>
+            <a href="skills.html" class="block hover:text-emerald-300">Skills</a>
+            <a href="portfolio.html" class="block hover:text-emerald-300">Portfolio</a>
+            <a href="contact.html" class="block text-emerald-400 font-medium">Contact</a>
+        </div>
+    </div>
+</header>
 
-        <div class="social-media">
-            <a href="https://www.facebook.com/profile.php?id=100004981455126" target="_blank" style="--i:7"><i class='bx bxl-facebook'></i></a>
-            <a href="https://www.instagram.com/nikolasarafimov/" target="_blank" style="--i:8"><i class='bx bxl-instagram-alt'></i></a>
-            <a href="https://www.youtube.com/channel/UCHr0fqBhKNtEHoNAk91UPCg" target="_blank" style="--i:9"><i class='bx bxl-youtube'></i></a>
-            <a href="mailto:sarafimov.nikola12345@gmail.com" target="_blank" style="--i:10"><i class='bx bxl-gmail' ></i></a>
+<!-- MAIN -->
+<main class="pt-24 pb-16">
+    <section class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl sm:text-4xl font-bold mb-6">Contact</h1>
+
+        <p class="text-sm sm:text-base text-slate-300 mb-6">
+            If you'd like to get in touch about a project, collaboration, or just to say hi,
+            feel free to send me a message using the form below.
+        </p>
+
+        <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-5 sm:p-6">
+            <form action="mailto:youremail@example.com" method="post" enctype="text/plain" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium mb-1" for="name">Name</label>
+                        <input id="name" name="name" type="text"
+                               class="w-full rounded-lg bg-slate-950 border border-slate-700 px-3 py-2 text-sm focus:outline-none focus:border-emerald-400"
+                               required />
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium mb-1" for="email">Email</label>
+                        <input id="email" name="email" type="email"
+                               class="w-full rounded-lg bg-slate-950 border border-slate-700 px-3 py-2 text-sm focus:outline-none focus:border-emerald-400"
+                               required />
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium mb-1" for="subject">Subject</label>
+                    <input id="subject" name="subject" type="text"
+                           class="w-full rounded-lg bg-slate-950 border border-slate-700 px-3 py-2 text-sm focus:outline-none focus:border-emerald-400"
+                           required />
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium mb-1" for="message">Message</label>
+                    <textarea id="message" name="message" rows="5"
+                              class="w-full rounded-lg bg-slate-950 border border-slate-700 px-3 py-2 text-sm focus:outline-none focus:border-emerald-400"
+                              required></textarea>
+                </div>
+
+                <button type="submit"
+                        class="inline-flex items-center px-5 py-2.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-sm font-semibold text-slate-950 transition">
+                    Send Message
+                </button>
+            </form>
         </div>
     </section>
+</main>
 
-    <script src="script.js"></script>
+<footer class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">
+    © <span id="year"></span> Nikola Sarafimov. All rights reserved.
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const navIconOpen = document.getElementById('navIconOpen');
+    const navIconClose = document.getElementById('navIconClose');
+
+    navToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        navIconOpen.classList.toggle('hidden');
+        navIconClose.classList.toggle('hidden');
+    });
+</script>
 </body>
 </html>

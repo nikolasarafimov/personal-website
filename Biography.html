@@ -1,54 +1,126 @@
 <!DOCTYPE html>
-<html lang="mk">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сарафимов портфолио</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Underdog&display=swap" rel="stylesheet">
-    <link rel="icon" href="./images/Лого.png">
+    <meta charset="UTF-8" />
+    <title>Nikola Sarafimov | Biography</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header class="header">
-      <a href="index.html" class="logo">Сарафимов Портфолио</a>
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+<!-- NAVBAR -->
+<header class="fixed inset-x-0 top-0 z-50 bg-slate-950/80 backdrop-blur border-b border-slate-800">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg border border-emerald-400 flex items-center justify-center text-xs font-semibold tracking-widest">
+                NS
+            </div>
+            <span class="font-semibold tracking-tight text-sm sm:text-base">
+          Nikola Sarafimov
+        </span>
+        </a>
 
-      <nav class="nav-links">
-        <a href="index.html" style="--i:1;">ПОЧЕТНА</a>
-        <a href="Biography.html" style="--i:2;" class="active">БИОГРАФИЈА</a>
-        <a href="Skills.html" style="--i:3;">ВЕШТИНИ</a>
-        <a href="Portfolio.html" style="--i:4;">ПОРТФОЛИО</a>
-        <a href="Contact.html" style="--i:5;">КОНТАКТ</a>
-      </nav>
+        <div class="hidden md:flex items-center gap-6 text-sm">
+            <a href="index.html" class="hover:text-emerald-300 transition">Home</a>
+            <a href="biography.html" class="text-emerald-400 font-medium">Biography</a>
+            <a href="skills.html" class="hover:text-emerald-300 transition">Skills</a>
+            <a href="portfolio.html" class="hover:text-emerald-300 transition">Portfolio</a>
+            <a href="contact.html" class="hover:text-emerald-300 transition">Contact</a>
+        </div>
 
-      <div class="lightDark-mode">
-        <i class='bx bx-moon moon' ></i>
-        <i class='bx bx-sun sun' ></i>
-      </div>
+        <button id="navToggle" class="md:hidden inline-flex items-center justify-center p-2 rounded-md border border-slate-700">
+            <span class="sr-only">Open main menu</span>
+            <svg id="navIconOpen" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="navIconClose" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </nav>
 
-      <div class="bx bx-menu" id="menu-icon"></div>
-    </header>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-800">
+        <div class="px-4 py-3 space-y-2 text-sm">
+            <a href="index.html" class="block hover:text-emerald-300">Home</a>
+            <a href="biography.html" class="block text-emerald-400 font-medium">Biography</a>
+            <a href="skills.html" class="block hover:text-emerald-300">Skills</a>
+            <a href="portfolio.html" class="block hover:text-emerald-300">Portfolio</a>
+            <a href="contact.html" class="block hover:text-emerald-300">Contact</a>
+        </div>
+    </div>
+</header>
 
-    <section class="biography" id="biography">
-      <h2 class="naslov">Биографија</h2>
+<!-- MAIN -->
+<main class="pt-24 pb-16">
+    <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl sm:text-4xl font-bold mb-6">Biography</h1>
 
-      <div class="biography-pic">
-        <img src="images/img2.jpg" alt="">
-      </div>
+        <div class="space-y-8">
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                Hi, I'm <span class="text-emerald-400 font-semibold">Nikola Sarafimov</span>, a computer science and software engineering student passionate about building digital experiences and solving problems through code.
+                I enjoy exploring the whole stack – from clean, responsive front-end interfaces to robust back-end logic.
+            </p>
 
-      <div class="biography-text">
-        <p align="justify">Јас сум Никола Сарафимов. Имам 22 години. Живеам во Скопје, Република Македонија.
-          Моментално сум студент на Факултетот за информатички науки и компјутерско инженерство при УКИМ,
-          трета година на насоката Примена на информациски технологии (ПИТ).
-          Основно училиште имам завршено во ООУ „Тихомир Милошевски“ - Ново Село, Скопје. Средно училиште имам
-          завршено во СУГС „Марија Кири - Склодовска“ - Аеродром, Скопје на смерот Медицински лабораториски -
-          санитарен техничар (4 години). Како хоби работам со видео монтажа како и креирање на истите.</p>
-      </div>
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                My journey into programming started with curiosity about how websites and applications work. Over time, that curiosity grew into a focused passion for web development, modern frameworks, and writing clean, maintainable code.
+            </p>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
+                    <h2 class="text-sm font-semibold text-slate-100 mb-2 flex items-center gap-2">
+                        <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                        Education
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-300">
+                        • B.Sc. in Computer Science / Software Engineering
+                        • Focus on web technologies, algorithms, and software design
+                        • Continuous learner and self-taught projects on the side
+                    </p>
+                </div>
+
+                <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-4">
+                    <h2 class="text-sm font-semibold text-slate-100 mb-2 flex items-center gap-2">
+                        <span class="inline-block w-1.5 h-1.5 rounded-full bg-sky-400"></span>
+                        Interests
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-300">
+                        • Full-stack development
+                        • UI/UX & responsive design
+                        • Problem solving & algorithms
+                        • Creative tech projects and media
+                    </p>
+                </div>
+            </div>
+
+            <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-5 space-y-3">
+                <h2 class="text-sm font-semibold text-slate-100">
+                    My Philosophy as a Developer
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    I believe good software is not only functional but also intuitive and enjoyable to use.
+                    For me, writing code is a mix of creativity and engineering — understanding real-world problems and transforming them into clean, efficient, and maintainable solutions.
+                </p>
+            </div>
+        </div>
     </section>
+</main>
 
-    <script src="script.js"></script>
+<footer class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">
+    © <span id="year"></span> Nikola Sarafimov. All rights reserved.
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const navIconOpen = document.getElementById('navIconOpen');
+    const navIconClose = document.getElementById('navIconClose');
+
+    navToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        navIconOpen.classList.toggle('hidden');
+        navIconClose.classList.toggle('hidden');
+    });
+</script>
 </body>
 </html>

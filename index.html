@@ -1,51 +1,394 @@
 <!DOCTYPE html>
-<html lang="mk">
+<html lang="en" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сарафимов портфолио</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Underdog&display=swap" rel="stylesheet">
-    <link rel="icon" href="./images/Лого.png">
+    <meta charset="UTF-8" />
+    <title>Nikola Sarafimov | Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>tailwind.config = { darkMode: "class" };</script>
+    <style>
+        #typingText {
+            border-right: 2px solid #34d399;
+            animation: blinkCursor 0.8s steps(1) infinite;
+        }
+
+        @keyframes blinkCursor {
+            50% { border-color: transparent; }
+        }
+        .nav-link {
+            position: relative;
+            transition: color .25s;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0%;
+            height: 2px;
+            background: #34d399;
+            transition: width .25s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+    </style>
 </head>
-<body>
-    <header class="header">
-        <a href="index.html" class="logo">Сарафимов Портфолио</a>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-500">
 
-        <nav class="nav-links">
-            <a href="index.html" style="--i:1;" class="active">ПОЧЕТНА</a>
-            <a href="Biography.html" style="--i:2;">БИОГРАФИЈА</a>
-            <a href="Skills.html" style="--i:3;">ВЕШТИНИ</a>
-            <a href="Portfolio.html" style="--i:4;">ПОРТФОЛИО</a>
-            <a href="Contact.html" style="--i:5;">КОНТАКТ</a>
-        </nav>
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-950/95 border-b border-slate-200 dark:border-slate-800 backdrop-blur-lg shadow-md dark:shadow-none transition-all duration-500">
+        <div class="max-w-[1300px] mx-auto h-16 px-6 flex items-center justify-between">
 
-        <div class="lightDark-mode">
-            <i class='bx bx-moon moon' ></i>
-            <i class='bx bx-sun sun' ></i>
+            <!-- LEFT – LOGO -->
+            <a href="index.html" class="flex items-center gap-2 font-mono text-xl font-semibold hover:opacity-80 transition">
+                <span class="text-slate-400">&lt;</span>
+                <span class="text-emerald-400">Nikola Sarafimov</span>
+                <span class="text-slate-400">/&gt;</span>
+            </a>
+
+            <!-- RIGHT – NAV + THEME + LANG -->
+            <div class="hidden md:flex items-center gap-10 font-mono text-base">
+
+                <!-- NAV LINKS -->
+                <nav class="flex items-center gap-8">
+                    <a data-translate="nav_home" href="index.html" class="nav-link text-emerald-400 font-semibold"></a>
+                    <a data-translate="nav_bio" href="Biography.html" class="nav-link"></a>
+                    <a data-translate="nav_skills" href="Skills.html" class="nav-link"></a>
+                    <a data-translate="nav_portfolio" href="Portfolio.html" class="nav-link"></a>
+                    <a data-translate="nav_contact" href="Contact.html" class="nav-link"></a>
+                </nav>
+
+                <!-- RIGHT BUTTONS -->
+                <div class="flex items-center gap-4 pl-6 ml-6 border-l border-slate-300/40 dark:border-slate-700">
+
+                    <!-- THEME BUTTON -->
+                    <button id="themeToggle"
+                            class="w-7 h-7 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-emerald-300 transition">
+                        <svg id="iconSun" class="w-7 h-7 hidden dark:block" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05L5.636 5.636m12.728 0l-1.414 1.414M7.05 16.95l-1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+                        </svg>
+                        <svg id="iconMoon" class="w-7 h-7 block dark:hidden" fill="none"
+                             stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/>
+                        </svg>
+                    </button>
+
+                    <!-- LANGUAGE BUTTON -->
+                    <button id="langToggle"
+                            class="lang-btn px-3 py-1.5 font-semibold tracking-wide rounded-full text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:text-emerald-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+                        MK
+                    </button>
+
+                </div>
+            </div>
+
+            <!-- MOBILE MENU BUTTON -->
+            <button id="navToggle"
+                    class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-slate-700 text-slate-700 dark:text-slate-200">
+                <svg id="navIconOpen" class="h-6 w-6" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <svg id="navIconClose" class="h-6 w-6 hidden" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
         </div>
 
-        <div class="bx bx-menu" id="menu-icon"></div>
+        <!-- MOBILE MENU -->
+        <div id="mobileMenu" class="md:hidden hidden border-t border-slate-800 bg-white dark:bg-slate-950">
+            <div class="px-6 py-4 space-y-3 font-mono text-base">
+                <a data-translate="nav_home" href="index.html" class="block text-emerald-500 font-semibold"></a>
+                <a data-translate="nav_bio" href="Biography.html" class="block hover:text-emerald-400"></a>
+                <a data-translate="nav_skills" href="Skills.html" class="block hover:text-emerald-400"></a>
+                <a data-translate="nav_portfolio" href="Portfolio.html" class="block hover:text-emerald-400"></a>
+                <a data-translate="nav_contact" href="Contact.html" class="block hover:text-emerald-400"></a>
+
+                <div class="flex items-center justify-between pt-3 border-t border-slate-300/30 dark:border-slate-700">
+                    <button id="themeToggleMobile"
+                            class="w-7 h-7 text-slate-700 dark:text-slate-300 hover:text-emerald-400 transition">
+                        <svg id="iconMoonMobile" class="w-7 h-7 dark:hidden" fill="none" stroke="currentColor"
+                             stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/>
+                        </svg>
+                        <svg id="iconSunMobile" class="w-7 h-7 hidden dark:block" fill="none"
+                             stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                  d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05L5.636 5.636m12.728 0l-1.414 1.414M7.05 16.95l-1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+                        </svg>
+                    </button>
+
+                    <button id="langToggleMobile"
+                            class="lang-btn px-3 py-1.5 font-semibold tracking-wide rounded-full text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:text-emerald-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+                        MK
+                    </button>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <section class="home" id="home">
-        <div class="home-pic">
-            <img src="images/img1.png" alt="">
-        </div>
 
-        <div class="home-text">
-            <h3>Здраво, јас сум</h3>
-            <h1>Никола Сарафимов</h1>
-            <h3>и сум <span>студент на ФИНКИ</span></h3>
-            <p align="justify">Добредојдовте на мојата персонална веб страница на која ќе ве запознаам со
-                мојата биографија, вештините кои ги поседувам како и моето портфолио со изработки.</p>
-        </div>
-    </section>
+<main class="pt-32 pb-20 flex-grow">
+        <section class="max-w-[1300px] mx-auto px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="space-y-5">
+                    <p class="text-sm tracking-[0.3em] uppercase text-emerald-400">
+                        &lt;hello world /&gt;
+                    </p>
 
-    <script src="script.js"></script>
+                    <h1 class="text-6xl font-bold leading-tight mb-3">
+                        <span data-translate="im_nikola"></span>
+                        <span class="text-emerald-400" data-translate="nikola_name"></span>
+                    </h1>
+
+                    <p class="text-3xl font-mono text-slate-300 flex items-center gap-2">
+                        <span class="text-emerald-400">&gt;</span>
+                        <span id="typingText" class="border-r border-emerald-400 pr-1"></span>
+                    </p>
+
+                    <p class="text-xl text-slate-400 max-w-xl leading-relaxed" data-translate="about_me"></p>
+
+                    <div class="flex flex-wrap gap-4 pt-3">
+                        <a href="Portfolio.html" class="px-6 py-3 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-base font-semibold text-slate-950 transition" data-translate="btn_portfolio"></a>
+                        <a href="Contact.html" class="px-6 py-3 rounded-lg border border-slate-700 hover:border-emerald-400 text-base font-semibold" data-translate="btn_contact"></a>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-6 text-sm text-slate-400">
+                        <span class="font-mono text-emerald-400" data-translate="tag1"></span>
+                        <span class="font-mono text-sky-400" data-translate="tag2"></span>
+                        <span class="font-mono text-purple-400" data-translate="tag3"></span>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-emerald-500/30 via-sky-500/20 to-purple-500/30 blur-xl opacity-80"></div>
+
+                    <div class="relative rounded-2xl border border-slate-800 bg-slate-900/70 p-8 shadow-lg max-w-full overflow-x-auto">
+                    <div class="flex items-center justify-between mb-5">
+                            <div class="flex items-center gap-2">
+                                <span class="w-3.5 h-3.5 rounded-full bg-red-500"></span>
+                                <span class="w-3.5 h-3.5 rounded-full bg-amber-400"></span>
+                                <span class="w-3.5 h-3.5 rounded-full bg-emerald-500"></span>
+                            </div>
+                            <span class="text-xs text-slate-500 font-mono">
+                                portfolio/home.jsx
+                            </span>
+                        </div>
+
+                        <pre class="text-base font-mono text-slate-200 whitespace-pre leading-relaxed">
+    <span class="text-slate-500">// quick intro</span>
+    <span class="text-sky-400">const</span> <span class="text-emerald-400">nikola</span> <span class="text-sky-400">=</span> {{
+      role: <span class="text-amber-300">"Student & Web Developer"</span>,
+      location: <span class="text-amber-300">"Skopje, North Macedonia"</span>,
+      focus: [<span class="text-amber-300">"Frontend"</span>, <span class="text-amber-300">"Backend"</span>, <span class="text-amber-300">"Problem Solving"</span>],
+      currentlyLearning: <span class="text-amber-300">"Modern web and clean architecture"</span>
+    }};
+
+    <span class="text-sky-400">function</span> <span class="text-emerald-400">buildDreams</span>() {{
+      <span class="text-sky-400">return</span> <span class="text-amber-300">"Code. Create. Improve every day."</span>;
+    }}
+    </pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-auto border-t border-slate-800 bg-slate-900/40 backdrop-blur-xl">
+        <div class="max-w-[1300px] mx-auto px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <p class="text-sm text-slate-400 text-center md:text-left">
+                © <span id="year"></span> Nikola Sarafimov. All rights reserved.
+            </p>
+
+            <div class="flex items-center gap-6">
+                <a id="privacyLink" data-translate="footer_privacy" href="Privacy.html"
+                   class="text-sm text-slate-400 hover:text-emerald-400 transition"></a>
+                <a id="termsLink" data-translate="footer_terms" href="Terms.html"
+                   class="text-sm text-slate-400 hover:text-emerald-400 transition"></a>
+
+                <a href="https://github.com/nikolasarafimov" class="text-xl hover:text-emerald-400"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/nikola-sarafimov-418753357/" class="text-xl hover:text-emerald-400"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/nikolasarafimov/" class="text-xl hover:text-emerald-400"><i class="fa-brands fa-instagram"></i></a>
+                <a href="" class="text-xl hover:text-emerald-400"><i class="fa-brands fa-gmail"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script>
+        let currentLang = localStorage.getItem("siteLang") || "en";
+
+        function applyTranslations() {
+            document.querySelectorAll("[data-translate]").forEach(el => {
+                const key = el.getAttribute("data-translate");
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+        }
+
+        function updateLegalLinks() {
+            const privacy = document.getElementById("privacyLink");
+            const terms = document.getElementById("termsLink");
+
+            if (currentLang === "mk") {
+                privacy.href = "privacy-mk.html";
+                terms.href = "terms-mk.html";
+            } else {
+                privacy.href = "privacy.html";
+                terms.href = "terms.html";
+            }
+        }
+
+
+        function updateLanguageButton() {
+            const langBtn = document.getElementById("langToggle");
+            const langBtnMobile = document.getElementById("langToggleMobile");
+
+            if (langBtn) langBtn.textContent = currentLang === "en" ? "MK" : "EN";
+            if (langBtnMobile) langBtnMobile.textContent = currentLang === "en" ? "MK" : "EN";
+        }
+
+        function switchLanguage() {
+            currentLang = currentLang === "en" ? "mk" : "en";
+            localStorage.setItem("siteLang", currentLang);
+            applyTranslations();
+            updateTypingPhrases();
+            updateLegalLinks();
+
+
+            document.getElementById("langToggle").textContent = currentLang === "en" ? "MK" : "EN";
+            document.getElementById("langToggleMobile").textContent = currentLang === "en" ? "MK" : "EN";
+
+            document.getElementById("langToggle").classList.add("lang-pop");
+            document.getElementById("langToggleMobile").classList.add("lang-pop");
+
+            setTimeout(() => {
+                document.getElementById("langToggle").classList.remove("lang-pop");
+                document.getElementById("langToggleMobile").classList.remove("lang-pop");
+            }, 250);
+        }
+
+        applyTranslations();
+        updateLegalLinks();
+        updateLanguageButton();
+
+
+        document.getElementById("langToggle").onclick = switchLanguage;
+        document.getElementById("langToggleMobile").onclick = switchLanguage;
+
+
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        const navToggle = document.getElementById("navToggle");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const navIconOpen = document.getElementById("navIconOpen");
+        const navIconClose = document.getElementById("navIconClose");
+
+        navToggle.addEventListener("click", () => {
+            mobileMenu.classList.toggle("hidden");
+            navIconOpen.classList.toggle("hidden");
+            navIconClose.classList.toggle("hidden");
+        });
+
+        let phrases = [];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        const typingText = document.getElementById("typingText");
+
+        function updateTypingPhrases() {
+            phrases = [
+                translations[currentLang].typing1,
+                translations[currentLang].typing2,
+                translations[currentLang].typing3,
+                translations[currentLang].typing4,
+                translations[currentLang].typing5,
+            ];
+        }
+
+        updateTypingPhrases();
+
+        function type() {
+            const current = phrases[phraseIndex];
+
+            typingText.textContent = current.slice(0, charIndex);
+
+            if (!isDeleting && charIndex < current.length) {
+                charIndex++;
+                setTimeout(type, 120);
+            }
+            else if (!isDeleting && charIndex === current.length) {
+                setTimeout(() => {
+                    isDeleting = true;
+                    type();
+                }, 1600);
+            }
+            else if (isDeleting && charIndex > 0) {
+                charIndex--;
+                setTimeout(type, 80);
+            }
+            else {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+
+                setTimeout(type, 300);
+            }
+        }
+        type();
+
+        const root = document.documentElement;
+        const themeToggle = document.getElementById("themeToggle");
+        const themeToggleMobile = document.getElementById("themeToggleMobile");
+        const iconMoon = document.getElementById("iconMoon");
+        const iconSun = document.getElementById("iconSun");
+        const iconMoonMobile = document.getElementById("iconMoonMobile");
+        const iconSunMobile = document.getElementById("iconSunMobile");
+
+
+        function animateIcon(icon) {
+            icon.classList.add("opacity-50", "scale-75", "rotate-180");
+            setTimeout(() => {
+                icon.classList.remove("opacity-50", "scale-75", "rotate-180");
+            }, 300);
+        }
+
+        function updateThemeIcons() {
+            const isDark = root.classList.contains("dark");
+
+            iconMoon.classList.toggle("hidden", isDark);
+            iconSun.classList.toggle("hidden", !isDark);
+
+            iconMoonMobile.classList.toggle("hidden", isDark);
+            iconSunMobile.classList.toggle("hidden", !isDark);
+
+            animateIcon(isDark ? iconSun : iconMoon);
+            animateIcon(isDark ? iconSunMobile : iconMoonMobile);
+        }
+
+        function toggleTheme() {
+            root.classList.toggle("dark");
+            localStorage.setItem("theme", root.classList.contains("dark") ? "dark" : "light");
+            updateThemeIcons();
+        }
+
+        if (localStorage.getItem("theme") === "light") {
+            root.classList.remove("dark");
+        }
+
+        updateThemeIcons();
+
+        themeToggle.onclick = toggleTheme;
+        themeToggleMobile.onclick = toggleTheme;
+    </script>
 </body>
 </html>

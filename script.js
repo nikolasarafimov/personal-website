@@ -1,3 +1,14 @@
+const toggle = document.querySelector('.nav-toggle');
+const links = document.querySelector('.nav-links');
+
+if (toggle && links) {
+    toggle.addEventListener('click', () => {
+        links.classList.toggle('open');
+    });
+}
+
+
+/*
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.nav-links');
 
@@ -38,4 +49,4 @@ body.addEventListener("click" , e => {
     if(!clickedElm.classList.contains("sidebarOpen") && !clickedElm.classList.contains("menu")){
         header.classList.remove("active");
     }
-});
+});*/

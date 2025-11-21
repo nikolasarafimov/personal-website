@@ -1,135 +1,130 @@
 <!DOCTYPE html>
-<html lang="mk">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сарафимов портфолио</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Underdog&display=swap" rel="stylesheet">
-    <link rel="icon" href="./images/Лого.png">
+    <meta charset="UTF-8" />
+    <title>Nikola Sarafimov | Skills</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header class="header">
-      <a href="index.html" class="logo">Сарафимов Портфолио</a>
-
-      <nav class="nav-links">
-        <a href="index.html" style="--i:1;">ПОЧЕТНА</a>
-        <a href="Biography.html" style="--i:2;">БИОГРАФИЈА</a>
-        <a href="Skills.html" style="--i:3;" class="active">ВЕШТИНИ</a>
-        <a href="Portfolio.html" style="--i:4;">ПОРТФОЛИО</a>
-        <a href="Contact.html" style="--i:5;">КОНТАКТ</a>
-      </nav>
-
-      <div class="lightDark-mode">
-        <i class='bx bx-moon moon' ></i>
-        <i class='bx bx-sun sun' ></i>
-      </div>
-
-      <div class="bx bx-menu" id="menu-icon"></div>
-    </header>
-
-    <section class="skills" id="skills">
-      <h2 class="heading">Вештини</h2>
-
-      <div class="skills-row">
-        <div class="skills-column">
-          <h3 class="title">Видео техника</h3>
-
-          <div class="skills-box">
-            <div class="skills-content">
-              <div class="progress">
-                <h3>Едитирање видеа</h3>
-              </div>
-
-              <div class="progress">
-                <h3>Снимање видеа</h3>
-              </div>
-
-              <div class="progress">
-                <h3>Фотошоп техники</h3>
-              </div>
+<body class="bg-slate-950 text-slate-100 min-h-screen">
+<!-- NAVBAR -->
+<header class="fixed inset-x-0 top-0 z-50 bg-slate-950/80 backdrop-blur border-b border-slate-800">
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-lg border border-emerald-400 flex items-center justify-center text-xs font-semibold tracking-widest">
+                NS
             </div>
-          </div>
+            <span class="font-semibold tracking-tight text-sm sm:text-base">
+          Nikola Sarafimov
+        </span>
+        </a>
+
+        <div class="hidden md:flex items-center gap-6 text-sm">
+            <a href="index.html" class="hover:text-emerald-300 transition">Home</a>
+            <a href="biography.html" class="hover:text-emerald-300 transition">Biography</a>
+            <a href="skills.html" class="text-emerald-400 font-medium">Skills</a>
+            <a href="portfolio.html" class="hover:text-emerald-300 transition">Portfolio</a>
+            <a href="contact.html" class="hover:text-emerald-300 transition">Contact</a>
         </div>
 
-        <div class="skills-column">
-          <h3 class="title">Спорт</h3>
+        <button id="navToggle" class="md:hidden inline-flex items-center justify-center p-2 rounded-md border border-slate-700">
+            <span class="sr-only">Open main menu</span>
+            <svg id="navIconOpen" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <svg id="navIconClose" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+    </nav>
 
-          <div class="skills-box">
-            <div class="skills-content">
-              <div class="progress">
-                <h3>Ракомет</h3>
-              </div>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-slate-800">
+        <div class="px-4 py-3 space-y-2 text-sm">
+            <a href="index.html" class="block hover:text-emerald-300">Home</a>
+            <a href="biography.html" class="block hover:text-emerald-300">Biography</a>
+            <a href="skills.html" class="block text-emerald-400 font-medium">Skills</a>
+            <a href="portfolio.html" class="block hover:text-emerald-300">Portfolio</a>
+            <a href="contact.html" class="block hover:text-emerald-300">Contact</a>
+        </div>
+    </div>
+</header>
 
-              <div class="progress">
-                <h3>Кошарка</h3>
-              </div>
+<!-- MAIN -->
+<main class="pt-24 pb-16">
+    <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl sm:text-4xl font-bold mb-6">Skills</h1>
 
-              <div class="progress">
-                <h3>Фудбал</h3>
-              </div>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Programming Languages -->
+            <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-5">
+                <h2 class="text-sm font-semibold mb-3 flex items-center gap-2">
+                    <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    Programming Languages
+                </h2>
+                <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                    <li>• HTML, CSS, JavaScript</li>
+                    <li>• C++ / Java (or adjust to what you know)</li>
+                    <li>• Tailwind CSS for styling</li>
+                    <li>• Basic SQL & backend concepts</li>
+                </ul>
             </div>
-          </div>
+
+            <!-- Web & Frameworks -->
+            <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-5">
+                <h2 class="text-sm font-semibold mb-3 flex items-center gap-2">
+                    <span class="inline-block w-1.5 h-1.5 rounded-full bg-sky-400"></span>
+                    Web & Frameworks
+                </h2>
+                <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                    <li>• Responsive web design</li>
+                    <li>• Tailwind-based UI layouts</li>
+                    <li>• RESTful API consumption</li>
+                    <li>• Basic MVC / full-stack structures</li>
+                </ul>
+            </div>
+
+            <!-- Tools & Soft Skills -->
+            <div class="rounded-xl border border-slate-800 bg-slate-900/60 p-5">
+                <h2 class="text-sm font-semibold mb-3 flex items-center gap-2">
+                    <span class="inline-block w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                    Tools & Soft Skills
+                </h2>
+                <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                    <li>• Git & GitHub</li>
+                    <li>• VS Code / IDE experience</li>
+                    <li>• Problem solving & debugging</li>
+                    <li>• Communication & teamwork</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="skills-column">
-          <h3 class="title">Програмирање</h3>
-
-          <div class="skills-box">
-            <div class="skills-content">
-              <div class="progress">
-                <h3>C / C++</h3>
-              </div>
-
-              <div class="progress">
-                <h3>HTML / CSS</h3>
-              </div>
-
-              <div class="progress">
-                <h3>C# (.NET, .NET Core)</h3>
-              </div>
-
-              <div class="progress">
-                <h3>Java</h3>
-              </div>
-
-              <div class="progress">
-                <h3>Django Python</h3>
-              </div>
-            </div>
-          </div>
+        <!-- Skill tags -->
+        <div class="mt-8 flex flex-wrap gap-2">
+            <span class="px-3 py-1 text-xs rounded-full border border-emerald-500/60 text-emerald-300">Frontend</span>
+            <span class="px-3 py-1 text-xs rounded-full border border-sky-500/60 text-sky-300">Backend basics</span>
+            <span class="px-3 py-1 text-xs rounded-full border border-purple-500/60 text-purple-300">Responsive design</span>
+            <span class="px-3 py-1 text-xs rounded-full border border-amber-500/60 text-amber-300">Problem solving</span>
         </div>
-
-        <div class="skills-column">
-          <h3 class="title">Останатo</h3>
-
-          <div class="skills-box">
-            <div class="skills-content">
-              <div class="progress">
-                <h3>Microsoft Office (Word, Excel, PowerPoint)</h3>
-              </div>
-
-              <div class="progress">
-                <h3>LibreOffice Calc</h3>
-              </div>
-
-              <div class="progress">
-                <h3>Одлични комуникациски вештини</h3>
-              </div>
-
-              <div class="progress">
-                <h3>Познавање нa странски јазици (Англиски, Српски, Германски)</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
+</main>
 
-    <script src="script.js"></script>
+<footer class="border-t border-slate-800 py-4 text-center text-xs text-slate-500">
+    © <span id="year"></span> Nikola Sarafimov. All rights reserved.
+</footer>
+
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const navIconOpen = document.getElementById('navIconOpen');
+    const navIconClose = document.getElementById('navIconClose');
+
+    navToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        navIconOpen.classList.toggle('hidden');
+        navIconClose.classList.toggle('hidden');
+    });
+</script>
 </body>
 </html>
