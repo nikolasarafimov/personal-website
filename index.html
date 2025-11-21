@@ -26,7 +26,7 @@
             position: absolute;
             left: 0;
             bottom: -4px;
-            width: 0%;
+            width: 0;
             height: 2px;
             background: #34d399;
             transition: width .25s;
@@ -40,100 +40,54 @@
 </head>
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-500">
 
-    <header class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-slate-950/95 border-b border-slate-200 dark:border-slate-800 backdrop-blur-lg shadow-md dark:shadow-none transition-all duration-500">
-        <div class="max-w-[1300px] mx-auto h-16 px-6 flex items-center justify-between">
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-slate-950/80 backdrop-blur-xl shadow-md border-b border-slate-800">
+    <div class="w-full h-16 px-8 flex items-center justify-between">
 
-            <!-- LEFT – LOGO -->
-            <a href="index.html" class="flex items-center gap-2 font-mono text-xl font-semibold hover:opacity-80 transition">
-                <span class="text-slate-400">&lt;</span>
-                <span class="text-emerald-400">Nikola Sarafimov</span>
-                <span class="text-slate-400">/&gt;</span>
-            </a>
+        <!-- LEFT — LOGO -->
+        <a href="index.html" class="flex items-center gap-2 font-mono text-xl font-semibold">
+            <span class="text-slate-400">&lt;</span>
+            <span class="text-emerald-400">Nikola Sarafimov</span>
+            <span class="text-slate-400">/&gt;</span>
+        </a>
 
-            <!-- RIGHT – NAV + THEME + LANG -->
-            <div class="hidden md:flex items-center gap-10 font-mono text-base">
+        <!-- RIGHT — NAVIGATION -->
+        <div class="hidden md:flex items-center gap-10 font-mono text-base">
 
-                <!-- NAV LINKS -->
-                <nav class="flex items-center gap-8">
-                    <a data-translate="nav_home" href="index.html" class="nav-link text-emerald-400 font-semibold"></a>
-                    <a data-translate="nav_bio" href="Biography.html" class="nav-link"></a>
-                    <a data-translate="nav_skills" href="Skills.html" class="nav-link"></a>
-                    <a data-translate="nav_portfolio" href="Portfolio.html" class="nav-link"></a>
-                    <a data-translate="nav_contact" href="Contact.html" class="nav-link"></a>
-                </nav>
+            <nav class="flex items-center gap-8">
+                <a data-translate="nav_home" href="index.html" class="nav-link"></a>
+                <a data-translate="nav_bio" href="Biography.html" class="nav-link"></a>
+                <a data-translate="nav_skills" href="Skills.html" class="nav-link"></a>
+                <a data-translate="nav_portfolio" href="Portfolio.html" class="nav-link"></a>
+                <a data-translate="nav_contact" href="Contact.html" class="nav-link"></a>
+            </nav>
 
-                <!-- RIGHT BUTTONS -->
-                <div class="flex items-center gap-4 pl-6 ml-6 border-l border-slate-300/40 dark:border-slate-700">
+            <!-- BUTTONS -->
+            <div class="flex items-center gap-4 pl-6 ml-6 border-l border-slate-700">
+                <button id="themeToggle" class="w-7 h-7 text-slate-300 hover:text-emerald-300 transition"></button>
 
-                    <!-- THEME BUTTON -->
-                    <button id="themeToggle"
-                            class="w-7 h-7 flex items-center justify-center text-slate-700 dark:text-slate-300 hover:text-emerald-300 transition">
-                        <svg id="iconSun" class="w-7 h-7 hidden dark:block" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05L5.636 5.636m12.728 0l-1.414 1.414M7.05 16.95l-1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z"/>
-                        </svg>
-                        <svg id="iconMoon" class="w-7 h-7 block dark:hidden" fill="none"
-                             stroke="currentColor" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/>
-                        </svg>
-                    </button>
-
-                    <!-- LANGUAGE BUTTON -->
-                    <button id="langToggle"
-                            class="lang-btn px-3 py-1.5 font-semibold tracking-wide rounded-full text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:text-emerald-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
-                        MK
-                    </button>
-
-                </div>
+                <button id="langToggle"
+                        class="px-3 py-1.5 rounded-full font-semibold bg-slate-800 text-slate-300 hover:bg-emerald-500 hover:text-slate-900 transition">
+                    MK
+                </button>
             </div>
 
-            <!-- MOBILE MENU BUTTON -->
-            <button id="navToggle"
-                    class="md:hidden inline-flex items-center justify-center p-2 rounded-lg border border-slate-700 text-slate-700 dark:text-slate-200">
-                <svg id="navIconOpen" class="h-6 w-6" fill="none" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M4 6h16M4 12h16M4 18h16"/>
-                </svg>
-                <svg id="navIconClose" class="h-6 w-6 hidden" fill="none" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M6 18L18 6M6 6l12 12"/>
-                </svg>
-            </button>
         </div>
 
-        <!-- MOBILE MENU -->
-        <div id="mobileMenu" class="md:hidden hidden border-t border-slate-800 bg-white dark:bg-slate-950">
-            <div class="px-6 py-4 space-y-3 font-mono text-base">
-                <a data-translate="nav_home" href="index.html" class="block text-emerald-500 font-semibold"></a>
-                <a data-translate="nav_bio" href="Biography.html" class="block hover:text-emerald-400"></a>
-                <a data-translate="nav_skills" href="Skills.html" class="block hover:text-emerald-400"></a>
-                <a data-translate="nav_portfolio" href="Portfolio.html" class="block hover:text-emerald-400"></a>
-                <a data-translate="nav_contact" href="Contact.html" class="block hover:text-emerald-400"></a>
+        <!-- MOBILE BUTTON -->
+        <button id="navToggle" class="md:hidden p-2 rounded-lg border border-slate-700 text-slate-200">
+            <svg id="navIconOpen" class="h-6 w-6" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+            <svg id="navIconClose" class="h-6 w-6 hidden" fill="none" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </button>
 
-                <div class="flex items-center justify-between pt-3 border-t border-slate-300/30 dark:border-slate-700">
-                    <button id="themeToggleMobile"
-                            class="w-7 h-7 text-slate-700 dark:text-slate-300 hover:text-emerald-400 transition">
-                        <svg id="iconMoonMobile" class="w-7 h-7 dark:hidden" fill="none" stroke="currentColor"
-                             stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/>
-                        </svg>
-                        <svg id="iconSunMobile" class="w-7 h-7 hidden dark:block" fill="none"
-                             stroke="currentColor" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                  d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05L5.636 5.636m12.728 0l-1.414 1.414M7.05 16.95l-1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z"/>
-                        </svg>
-                    </button>
+    </div>
+</header>
 
-                    <button id="langToggleMobile"
-                            class="lang-btn px-3 py-1.5 font-semibold tracking-wide rounded-full text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:text-emerald-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
-                        MK
-                    </button>
-                </div>
-            </div>
-        </div>
-    </header>
 
 
 <main class="pt-32 pb-20 flex-grow">
@@ -203,26 +157,29 @@
     </main>
 
     <footer class="mt-auto border-t border-slate-800 bg-slate-900/40 backdrop-blur-xl">
-        <div class="max-w-[1300px] mx-auto px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="w-full px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-6">
+
+            <!-- LEFT -->
             <p class="text-sm text-slate-400 text-center md:text-left">
                 © <span id="year"></span> Nikola Sarafimov. All rights reserved.
             </p>
 
+            <!-- RIGHT -->
             <div class="flex items-center gap-6">
-                <a id="privacyLink" data-translate="footer_privacy" href="Privacy.html"
-                   class="text-sm text-slate-400 hover:text-emerald-400 transition"></a>
-                <a id="termsLink" data-translate="footer_terms" href="Terms.html"
-                   class="text-sm text-slate-400 hover:text-emerald-400 transition"></a>
+                <a data-translate="footer_privacy" id="privacyLink" href="Privacy.html" class="text-sm text-slate-400 hover:text-emerald-400 transition"></a>
+                <a data-translate="footer_terms" id="termsLink" href="Terms.html" class="text-sm text-slate-400 hover:text-emerald-400 transition"></a>
 
-                <a href="https://github.com/nikolasarafimov" class="text-xl hover:text-emerald-400"><i class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/nikola-sarafimov-418753357/" class="text-xl hover:text-emerald-400"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://www.instagram.com/nikolasarafimov/" class="text-xl hover:text-emerald-400"><i class="fa-brands fa-instagram"></i></a>
-                <a href="" class="text-xl hover:text-emerald-400"><i class="fa-brands fa-gmail"></i></a>
+                <a href="https://github.com/nikolasarafimov" target="_blank" class="text-xl hover:text-emerald-400"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/nikola-sarafimov-418753357/" target="_blank" class="text-xl hover:text-emerald-400"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/nikolasarafimov/" target="_blank" class="text-xl hover:text-emerald-400"><i class="fa-brands fa-instagram"></i></a>
+                <a href="mailto:sarafimov.nikola12345@gmail.com" target="_blank" class="text-xl hover:text-emerald-400"><i class="fa-solid fa-envelope"></i></a>
             </div>
+
         </div>
     </footer>
 
-    <script src="translations.js"></script>
+
+<script src="translations.js"></script>
     <script>
         let currentLang = localStorage.getItem("siteLang") || "en";
 
