@@ -407,6 +407,11 @@
         const iconMoonMobile = document.getElementById("iconMoonMobile");
         const iconSunMobile = document.getElementById("iconSunMobile");
 
+        if (iconMoon) iconMoon.classList.add("theme-initial-load");
+        if (iconSun) iconSun.classList.add("theme-initial-load");
+        if (iconMoonMobile) iconMoonMobile.classList.add("theme-initial-load");
+        if (iconSunMobile) iconSunMobile.classList.add("theme-initial-load");
+
         function animateIcon(icon) {
             if (!icon) return;
             icon.classList.add("theme-rotate");
@@ -435,14 +440,14 @@
 
         updateThemeIcons();
 
-        if (themeToggle) themeToggle.onclick = toggleTheme;
-        if (themeToggleMobile) themeToggleMobile.onclick = toggleTheme;
-
         function toggleTheme() {
             root.classList.toggle("dark");
             localStorage.setItem("theme", root.classList.contains("dark") ? "dark" : "light");
             updateThemeIcons();
         }
+
+        if (themeToggle) themeToggle.onclick = toggleTheme;
+        if (themeToggleMobile) themeToggleMobile.onclick = toggleTheme;
 
         function markActiveNav() {
             let path = window.location.pathname.split("/").pop().toLowerCase();
