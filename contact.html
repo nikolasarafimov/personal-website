@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <title>Nikola Sarafimov | Contact</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>tailwind.config = { darkMode: "class" };</script>
+    <style>
+        .animated-divider {
+            height: 1.5px;
+            background: linear-gradient(
+                    90deg,
+                    rgba(52, 211, 153, 0) 0%,
+                    rgba(52, 211, 153, 1) 50%,
+                    rgba(52, 211, 153, 0) 100%
+            );
+            background-size: 200% 100%;
+            animation: slideGradient 7s linear infinite;
+        }
+        @keyframes slideGradient {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .lang-pop { animation: langPop 0.25s ease-out; }
+        @keyframes langPop {
+            0% { transform: scale(0.92); box-shadow: 0 0 0 rgba(52,211,153,0); }
+            60% { transform: scale(1.06); box-shadow: 0 0 12px rgba(52,211,153,0.5); }
+            100% { transform: scale(1); box-shadow: 0 0 0 rgba(52,211,153,0); }
+        }
+        .theme-icon-anim {
+            transition: transform 0.5s ease, opacity 0.3s ease;
+            transform-origin: center;
+        }
+        .theme-rotate { transform: rotate(360deg) scale(1.15); }
+        .theme-initial-load { animation: themeLoadSpin 1s ease; }
+        @keyframes themeLoadSpin {
+            0% { transform: rotate(-180deg); opacity: 0; }
+            100% { transform: rotate(0deg); opacity: 1; }
+        }
+        #mobileMenu {
+            max-height: 0;
+            opacity: 0;
+            pointer-events: none;
+            overflow: hidden;
+            transform-origin: top;
+            transition: max-height 0.3s ease, opacity 0.25s ease, transform 0.3s ease;
+        }
+        #mobileMenu.menu-open {
+            max-height: 400px;
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        ::-webkit-scrollbar { display: none; }
+        html, body { scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-500">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-slate-950/80 backdrop-blur-xl shadow-md border-b-0 h-14">
+        <div class="w-full h-14 px-6 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 font-mono text-xl font-semibold leading-none select-none transition-all duration-300 hover:text-emerald-400 hover:scale-105 hover:[text-shadow:0_0_8px_rgba(52,211,153,0.8)]">
+                <span class="text-slate-400">&lt;</span>
+                <span class="text-emerald-400">Nikola Sarafimov</span>
+                <span class="text-slate-400">/&gt;</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-10 font-mono text-base leading-none ml-10">
+                <nav class="flex items-center gap-8 leading-none">
+                    <a data-translate="nav_home" href="index.html" class="relative transition-all duration-200 hover:text-emerald-400 hover:scale-105 hover:[text-shadow:0_0_6px_rgba(52,211,153,0.7)]"></a>
+                    <a data-translate="nav_bio" href="biography.html" class="relative transition-all duration-200 hover:text-emerald-400 hover:scale-105 hover:[text-shadow:0_0_6px_rgba(52,211,153,0.7)]"></a>
+                    <a data-translate="nav_skills" href="skills.html" class="relative transition-all duration-200 hover:text-emerald-400 hover:scale-105 hover:[text-shadow:0_0_6px_rgba(52,211,153,0.7)]"></a>
+                    <a data-translate="nav_portfolio" href="portfolio.html" class="relative transition-all duration-200 hover:text-emerald-400 hover:scale-105 hover:[text-shadow:0_0_6px_rgba(52,211,153,0.7)]"></a>
+                    <a data-translate="nav_contact" href="contact.html" class="relative transition-all duration-200 hover:text-emerald-400 hover:scale-105 hover:[text-shadow:0_0_6px_rgba(52,211,153,0.7)]"></a>
+                </nav>
+
+                <div class="flex items-center gap-4 pl-6 ml-6 border-l border-slate-700 h-full leading-none">
+                    <button id="themeToggle" class="relative w-9 h-9 rounded-full flex items-center justify-center text-slate-300 transition-all duration-300 hover:bg-emerald-500/15 hover:shadow-[0_0_12px_rgba(52,211,153,0.35)] hover:scale-110">
+                        <svg id="iconMoon" class="w-7 h-7 theme-icon-anim" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/>
+                        </svg>
+                        <svg id="iconSun" class="w-7 h-7 theme-icon-anim hidden" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05L5.636 5.636m12.728 0l-1.414 1.414M7.05 16.95l-1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+                        </svg>
+                    </button>
+
+                    <button id="langToggle" class="px-4 py-1.5 font-semibold rounded-full bg-slate-900/80 text-slate-300 border border-slate-500/60 transition-all duration-300 relative overflow-hidden hover:text-slate-900 hover:bg-emerald-400 hover:border-emerald-400 hover:shadow-[0_0_12px_rgba(52,211,153,0.55)] hover:-translate-y-0.5 leading-none select-none">
+                        MK
+                    </button>
+                </div>
+            </div>
+
+            <button id="navToggle" class="md:hidden p-2 rounded-lg border border-slate-700 text-slate-200 flex items-center justify-center leading-none">
+                <svg id="navIconOpen" class="h-6 w-6" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <svg id="navIconClose" class="h-6 w-6 hidden" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="animated-divider"></div>
+
+        <div id="mobileMenu" class="md:hidden bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-t border-b border-slate-700 px-6 py-4 space-y-4 font-mono text-base leading-none">
+            <a data-translate="nav_home" href="index.html" class="block py-1 hover:text-emerald-400 transition-colors"></a>
+            <a data-translate="nav_bio" href="biography.html" class="block py-1 hover:text-emerald-400 transition-colors"></a>
+            <a data-translate="nav_skills" href="skills.html" class="block py-1 hover:text-emerald-400 transition-colors"></a>
+            <a data-translate="nav_portfolio" href="portfolio.html" class="block py-1 hover:text-emerald-400 transition-colors"></a>
+            <a data-translate="nav_contact" href="contact.html" class="block py-1 hover:text-emerald-400 transition-colors"></a>
+
+            <div class="flex items-center justify-between pt-3 border-t border-slate-300/30 dark:border-slate-700 leading-none">
+                <button id="themeToggleMobile" class="relative w-9 h-9 rounded-full flex items-center justify-center text-slate-300 transition-all duration-300 hover:bg-emerald-500/15 hover:shadow-[0_0_12px_rgba(52,211,153,0.35)] hover:scale-110">
+                    <svg id="iconMoonMobile" class="w-7 h-7 theme-icon-anim" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/>
+                    </svg>
+                    <svg id="iconSunMobile" class="w-7 h-7 theme-icon-anim hidden" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05L5.636 5.636m12.728 0l-1.414 1.414M7.05 16.95l-1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+                    </svg>
+                </button>
+
+                <button id="langToggleMobile" class="px-4 py-1.5 font-semibold rounded-full bg-slate-900/80 text-slate-300 border border-slate-500/60 transition-all duration-300 relative overflow-hidden hover:text-slate-900 hover:bg-emerald-400 hover:border-emerald-400 hover:shadow-[0_0_12px_rgba(52,211,153,0.55)] hover:-translate-y-0.5 leading-none select-none">
+                    MK
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-[80px] md:pt-28 lg:pt-24 xl:pt-24 pb-16 flex-grow select-none">
+        <section class="max-w-[1200px] mx-auto px-6 sm:px-8">
+            <div class="text-center mb-10">
+                <h2 class="font-mono text-xl sm:text-2xl font-bold flex items-center justify-center gap-2">
+                    <span class="text-slate-400">&lt;</span>
+                    <span class="text-emerald-400" data-translate="contact_title"></span>
+                    <span class="text-slate-400">/&gt;</span>
+                </h2>
+                <p class="mt-2 text-sm text-slate-400" data-translate="contact_subtitle"></p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 xl:gap-12">
+                <div class="rounded-2xl bg-slate-950/90 border border-slate-800 px-7 py-7 shadow-xl">
+                    <h3 class="font-mono text-xl text-emerald-400 mb-3" data-translate="contact_getintouch_title"></h3>
+                    <p class="text-sm sm:text-[0.95rem] leading-relaxed text-slate-300 mb-6 max-w-md" data-translate="contact_getintouch_text"></p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4">
+                            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-500" data-translate="contact_label_email"></p>
+                                <a href="mailto:sarafimov.nikola12345@gmail.com" class="text-sm font-medium text-slate-100 hover:text-emerald-400">
+                                    sarafimov.nikola12345@gmail.com
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-400">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-slate-500" data-translate="contact_label_location"></p>
+                                <p class="text-sm text-slate-100" data-translate="contact_location"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 rounded-xl bg-slate-900/80 border border-slate-800 px-4 py-3 font-mono text-[11px] text-slate-300">
+                        <span class="text-sky-300">const</span> <span class="text-emerald-300">status</span> =
+                        <span class="text-amber-300" data-translate="contact_status"></span>;
+                    </div>
+
+                    <div class="mt-6">
+                        <p class="font-mono text-xs text-slate-500 mb-3" data-translate="contact_socials"></p>
+                        <div class="flex items-center gap-4">
+                            <a href="https://github.com/nikolasarafimov" target="_blank"
+                               class="h-10 w-10 rounded-xl bg-slate-900 flex items-center justify-center text-slate-200 hover:text-emerald-400 hover:bg-slate-800 transition">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/nikola-sarafimov-418753357/" target="_blank"
+                               class="h-10 w-10 rounded-xl bg-slate-900 flex items-center justify-center text-slate-200 hover:text-emerald-400 hover:bg-slate-800 transition">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://www.instagram.com/nikolasarafimov/" target="_blank"
+                               class="h-10 w-10 rounded-xl bg-slate-900 flex items-center justify-center text-slate-200 hover:text-emerald-400 hover:bg-slate-800 transition">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="mailto:sarafimov.nikola12345@gmail.com"
+                               class="h-10 w-10 rounded-xl bg-slate-900 flex items-center justify-center text-slate-200 hover:text-emerald-400 hover:bg-slate-800 transition">
+                                <i class="fa-solid fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-emerald-400/25 via-sky-400/15 to-purple-500/20 blur-xl opacity-70"></div>
+                    <div class="relative rounded-2xl bg-slate-950/95 border border-slate-800 px-7 py-7 shadow-2xl">
+                        <div class="flex items-center justify-between mb-5 text-xs font-mono text-slate-400">
+                            <div class="flex items-center gap-1.5">
+                                <span class="h-2.5 w-2.5 rounded-full bg-red-400"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-amber-300"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                            </div>
+                            <span class="text-slate-500">send-message.ts</span>
+                        </div>
+
+                        <form id="contactForm" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-mono text-slate-400 mb-1" data-translate="form_name_label"></label>
+                                    <input type="text" name="name" data-translate-placeholder="form_name_placeholder" placeholder="Your name" class="w-full rounded-xl bg-slate-900/80 border border-slate-700 px-3 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400" />
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-mono text-slate-400 mb-1" data-translate="form_email_label"></label>
+                                    <input type="email" name="email" data-translate-placeholder="form_email_placeholder" placeholder="your.email@example.com" class="w-full rounded-xl bg-slate-900/80 border border-slate-700 px-3 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400" />
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-mono text-slate-400 mb-1" data-translate="form_subject_label"></label>
+                                <input type="text" name="subject" data-translate-placeholder="form_subject_placeholder" placeholder="Project collaboration" class="w-full rounded-xl bg-slate-900/80 border border-slate-700 px-3 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400" />
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-mono text-slate-400 mb-1" data-translate="form_message_label"></label>
+                                <textarea name="message" rows="4" data-translate-placeholder="form_message_placeholder" placeholder="Hello Nikola, I would like to discuss..." class="w-full rounded-xl bg-slate-900/80 border border-slate-700 px-3 py-2.5 text-sm text-slate-100 placeholder:text-slate-500 focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 resize-none"></textarea>
+                            </div>
+
+                            <div class="pt-2">
+                                <button type="submit" class="w-full inline-flex items-center justify-center gap-2 rounded-full bg-lime-400 text-slate-950 font-mono text-sm font-semibold px-4 py-2.5 shadow-lg hover:bg-lime-300 hover:shadow-[0_0_18px_rgba(190,242,100,0.9)] hover:-translate-y-0.5 transition-all">
+                                    <span data-translate="form_button_text"></span>
+                                </button>
+
+                                <p id="formStatus" class="mt-2 text-xs font-mono text-emerald-300 opacity-0 transition-opacity duration-300" data-translate="form_success_text"></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-auto border-t border-slate-800 bg-slate-900/40 backdrop-blur-xl">
+        <div class="w-full px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <p class="text-sm text-slate-400 text-center md:text-left">
+                © <span id="year"></span> <span id="footerName"></span>. <span id="footerText"></span>
+            </p>
+
+            <div class="flex items-center gap-6">
+                <a data-translate="footer_privacy" id="privacyLink" href="privacy.html" class="text-sm text-slate-400 hover:text-emerald-400 transition-colors"></a>
+                <a data-translate="footer_terms" id="termsLink" href="terms.html" class="text-sm text-slate-400 hover:text-emerald-400 transition-colors"></a>
+
+                <a href="https://github.com/nikolasarafimov" target="_blank" class="text-xl hover:text-emerald-400 transition-colors"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/nikola-sarafimov-418753357/" target="_blank" class="text-xl hover:text-emerald-400 transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/nikolasarafimov/" target="_blank" class="text-xl hover:text-emerald-400 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="mailto:sarafimov.nikola12345@gmail.com" target="_blank" class="text-xl hover:text-emerald-400 transition-colors"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script>
+        let currentLang = localStorage.getItem("siteLang") || "en";
+
+        function applyTranslations() {
+            document.querySelectorAll("[data-translate]").forEach(el => {
+                const key = el.getAttribute("data-translate");
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+        }
+
+        function updateLegalLinks() {
+            const privacy = document.getElementById("privacyLink");
+            const terms = document.getElementById("termsLink");
+            if (!privacy || !terms) return;
+
+            if (currentLang === "mk") {
+                privacy.href = "privacy-mk.html";
+                terms.href = "terms-mk.html";
+            } else {
+                privacy.href = "privacy.html";
+                terms.href = "terms.html";
+            }
+        }
+
+        function updateLanguageButton() {
+            const langBtn = document.getElementById("langToggle");
+            const langBtnMobile = document.getElementById("langToggleMobile");
+            if (langBtn) langBtn.textContent = currentLang === "en" ? "MK" : "EN";
+            if (langBtnMobile) langBtnMobile.textContent = currentLang === "en" ? "MK" : "EN";
+        }
+
+        function updateFooterName() {
+            const footerName = document.getElementById("footerName");
+            if (footerName && translations[currentLang]) {
+                footerName.textContent = translations[currentLang].footer_name;
+            }
+        }
+
+        function updateFooterText() {
+            const footerText = document.getElementById("footerText");
+            if (footerText && translations[currentLang]) {
+                footerText.textContent = translations[currentLang].footer_full;
+            }
+        }
+
+        function switchLanguage() {
+            currentLang = currentLang === "en" ? "mk" : "en";
+            localStorage.setItem("siteLang", currentLang);
+            applyTranslations();
+            updateLegalLinks();
+            updateLanguageButton();
+            updateFooterName();
+            updateFooterText();
+
+            const langBtn = document.getElementById("langToggle");
+            const langBtnMobile = document.getElementById("langToggleMobile");
+
+            if (langBtn) {
+                langBtn.classList.add("lang-pop");
+                setTimeout(() => langBtn.classList.remove("lang-pop"), 250);
+            }
+            if (langBtnMobile) {
+                langBtnMobile.classList.add("lang-pop");
+                setTimeout(() => langBtnMobile.classList.remove("lang-pop"), 250);
+            }
+        }
+
+        applyTranslations();
+        updateLegalLinks();
+        updateLanguageButton();
+        updateFooterName();
+        updateFooterText();
+
+        document.getElementById("langToggle")?.addEventListener("click", switchLanguage);
+        document.getElementById("langToggleMobile")?.addEventListener("click", switchLanguage);
+
+        const startYear = 2023;
+        const currentYear = new Date().getFullYear();
+        document.getElementById("year").textContent =
+            currentYear === startYear ? `${startYear}` : `${startYear}–${currentYear}`;
+
+        const navToggle = document.getElementById("navToggle");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const navIconOpen = document.getElementById("navIconOpen");
+        const navIconClose = document.getElementById("navIconClose");
+
+        if (navToggle && mobileMenu && navIconOpen && navIconClose) {
+            navToggle.addEventListener("click", () => {
+                mobileMenu.classList.toggle("menu-open");
+                navIconOpen.classList.toggle("hidden");
+                navIconClose.classList.toggle("hidden");
+            });
+        }
+
+        const root = document.documentElement;
+        const themeToggle = document.getElementById("themeToggle");
+        const themeToggleMobile = document.getElementById("themeToggleMobile");
+        const iconMoon = document.getElementById("iconMoon");
+        const iconSun = document.getElementById("iconSun");
+        const iconMoonMobile = document.getElementById("iconMoonMobile");
+        const iconSunMobile = document.getElementById("iconSunMobile");
+
+        function animateIcon(icon) {
+            if (!icon) return;
+            icon.classList.add("theme-rotate");
+            setTimeout(() => icon.classList.remove("theme-rotate"), 500);
+        }
+
+        function updateThemeIcons() {
+            const isDark = root.classList.contains("dark");
+
+            if (iconMoon && iconSun) {
+                iconMoon.classList.toggle("hidden", isDark);
+                iconSun.classList.toggle("hidden", !isDark);
+                animateIcon(isDark ? iconSun : iconMoon);
+            }
+
+            if (iconMoonMobile && iconSunMobile) {
+                iconMoonMobile.classList.toggle("hidden", isDark);
+                iconSunMobile.classList.toggle("hidden", !isDark);
+                animateIcon(isDark ? iconSunMobile : iconMoonMobile);
+            }
+        }
+
+        if (localStorage.getItem("theme") === "light") {
+            root.classList.remove("dark");
+        }
+
+        updateThemeIcons();
+
+        if (themeToggle) themeToggle.onclick = toggleTheme;
+        if (themeToggleMobile) themeToggleMobile.onclick = toggleTheme;
+
+        function toggleTheme() {
+            root.classList.toggle("dark");
+            localStorage.setItem("theme", root.classList.contains("dark") ? "dark" : "light");
+            updateThemeIcons();
+        }
+
+        function markActiveNav() {
+            let path = window.location.pathname.split("/").pop().toLowerCase();
+            if (path === "" || path === "/") path = "contact.html";
+
+            const links = document.querySelectorAll("a[href]");
+            links.forEach(link => {
+                const href = link.getAttribute("href");
+                if (!href) return;
+
+                const file = href.split("/").pop().toLowerCase();
+                if (file === path) {
+                    if (link.closest("nav")) {
+                        link.classList.add(
+                            "text-emerald-400",
+                            "font-semibold",
+                            "[text-shadow:0_0_8px_rgba(52,211,153,0.9)]"
+                        );
+                    }
+                    if (link.closest("#mobileMenu")) {
+                        link.classList.add("text-emerald-400", "font-semibold");
+                    }
+                }
+            });
+        }
+        markActiveNav();
+
+        const contactForm = document.getElementById("contactForm");
+        const formStatus = document.getElementById("formStatus");
+
+        if (contactForm && formStatus) {
+            contactForm.addEventListener("submit", (e) => {
+                e.preventDefault();
+                contactForm.reset();
+                formStatus.style.opacity = "1";
+                setTimeout(() => { formStatus.style.opacity = "0"; }, 3500);
+            });
+        }
+    </script>
+</body>
+</html>

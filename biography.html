@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <title>Nikola Sarafimov | Biography</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>tailwind.config = { darkMode: "class" };</script>
+    <style>
+        .animated-divider {
+            height: 1.5px;
+            background: linear-gradient(
+                    90deg,
+                    rgba(52, 211, 153, 0) 0%,
+                    rgba(52, 211, 153, 1) 50%,
+                    rgba(52, 211, 153, 0) 100%
+            );
+            background-size: 200% 100%;
+            animation: slideGradient 7s linear infinite;
+        }
+        @keyframes slideGradient {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .lang-pop { animation: langPop 0.25s ease-out; }
+        @keyframes langPop {
+            0% { transform: scale(0.92); box-shadow: 0 0 0 rgba(52,211,153,0); }
+            60% { transform: scale(1.06); box-shadow: 0 0 12px rgba(52,211,153,0.5); }
+            100% { transform: scale(1); box-shadow: 0 0 0 rgba(52,211,153,0); }
+        }
+        .theme-icon-anim {
+            transition: transform 0.5s ease, opacity 0.3s ease;
+            transform-origin: center;
+        }
+        .theme-rotate { transform: rotate(360deg) scale(1.15); }
+        .theme-initial-load { animation: themeLoadSpin 1s ease; }
+        @keyframes themeLoadSpin {
+            0% { transform: rotate(-180deg); opacity: 0; }
+            100% { transform: rotate(0deg); opacity: 1; }
+        }
+
+        #mobileMenu {
+            max-height: 0;
+            opacity: 0;
+            pointer-events: none;
+            overflow: hidden;
+            transform-origin: top;
+            transition: max-height 0.3s ease, opacity 0.25s ease, transform 0.3s ease;
+        }
+        #mobileMenu.menu-open {
+            max-height: 400px;
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .code-area::-webkit-scrollbar { display: none; }
+        .code-area {
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-500">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-slate-950/80 backdrop-blur-xl shadow-md border-b-0 h-14">
+        <div class="w-full h-14 px-6 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-2 font-mono text-xl font-semibold leading-none select-none transition-all duration-300 hover:text-emerald-400 hover:scale-105 hover:[text-shadow:0_0_8px_rgba(52,211,153,0.8)]">
+                <span class="text-slate-400">&lt;</span>
+                <span class="text-emerald-400">Nikola Sarafimov</span>
+                <span class="text-slate-400">/&gt;</span>
+            </a>
+
+            <div class="hidden md:flex items-center gap-10 font-mono text-base leading-none ml-10">
+                <nav class="flex items-center gap-8 leading-none">
+                    <a data-translate="nav_home" href="index.html" class="relative transition-all duration-200 hover:text-emerald-400 hover:scale-105 hover:[text-shadow:0_0_6px_rgba(52,211,153,0.7)]"></a>
+                    <a data-translate="nav_bio" href="biography.html" class="relative transition-all duration-200 hover:text-emerald-400 hover:scale-105 hover:[text-shadow:0_0_6px_rgba(52,211,153,0.7)]"></a>
+                    <a data-translate="nav_skills" href="skills.html" class="relative transition-all duration-200 hover:text-emerald-400 hover:scale-105 hover:[text-shadow:0_0_6px_rgba(52,211,153,0.7)]"></a>
+                    <a data-translate="nav_portfolio" href="portfolio.html" class="relative transition-all duration-200 hover:text-emerald-400 hover:scale-105 hover:[text-shadow:0_0_6px_rgba(52,211,153,0.7)]"></a>
+                    <a data-translate="nav_contact" href="contact.html" class="relative transition-all duration-200 hover:text-emerald-400 hover:scale-105 hover:[text-shadow:0_0_6px_rgba(52,211,153,0.7)]"></a>
+                </nav>
+
+                <div class="flex items-center gap-4 pl-6 ml-6 border-l border-slate-700 h-full leading-none">
+                    <button id="themeToggle" class="relative w-9 h-9 rounded-full flex items-center justify-center text-slate-300 transition-all duration-300 hover:bg-emerald-500/15 hover:shadow-[0_0_12px_rgba(52,211,153,0.35)] hover:scale-110">
+                        <svg id="iconMoon" class="w-7 h-7 theme-icon-anim" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/>
+                        </svg>
+                        <svg id="iconSun" class="w-7 h-7 theme-icon-anim hidden" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05L5.636 5.636m12.728 0l-1.414 1.414M7.05 16.95l-1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+                        </svg>
+                    </button>
+
+                    <button id="langToggle" class="px-4 py-1.5 font-semibold rounded-full bg-slate-900/80 text-slate-300 border border-slate-500/60 transition-all duration-300 relative overflow-hidden hover:text-slate-900 hover:bg-emerald-400 hover:border-emerald-400 hover:shadow-[0_0_12px_rgba(52,211,153,0.55)] hover:-translate-y-0.5 leading-none select-none">
+                        MK
+                    </button>
+                </div>
+            </div>
+
+            <button id="navToggle" class="md:hidden p-2 rounded-lg border border-slate-700 text-slate-200 flex items-center justify-center leading-none">
+                <svg id="navIconOpen" class="h-6 w-6" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                <svg id="navIconClose" class="h-6 w-6 hidden" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
+        </div>
+
+        <div class="animated-divider"></div>
+
+        <div id="mobileMenu" class="md:hidden bg-white/90 dark:bg-slate-950/90 backdrop-blur-xl border-t border-b border-slate-700 px-6 py-4 space-y-4 font-mono text-base leading-none">
+            <a data-translate="nav_home" href="index.html" class="block py-1 hover:text-emerald-400 transition-colors"></a>
+            <a data-translate="nav_bio" href="biography.html" class="block py-1 hover:text-emerald-400 transition-colors"></a>
+            <a data-translate="nav_skills" href="skills.html" class="block py-1 hover:text-emerald-400 transition-colors"></a>
+            <a data-translate="nav_portfolio" href="portfolio.html" class="block py-1 hover:text-emerald-400 transition-colors"></a>
+            <a data-translate="nav_contact" href="contact.html" class="block py-1 hover:text-emerald-400 transition-colors"></a>
+
+            <div class="flex items-center justify-between pt-3 border-t border-slate-300/30 dark:border-slate-700 leading-none">
+                <button id="themeToggleMobile" class="relative w-9 h-9 rounded-full flex items-center justify-center text-slate-300 transition-all duration-300 hover:bg-emerald-500/15 hover:shadow-[0_0_12px_rgba(52,211,153,0.35)] hover:scale-110">
+                    <svg id="iconMoonMobile" class="w-7 h-7 theme-icon-anim" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"/>
+                    </svg>
+                    <svg id="iconSunMobile" class="w-7 h-7 theme-icon-anim hidden" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2m0 14v2m9-9h-2M5 12H3m15.364 6.364l-1.414-1.414M7.05 7.05L5.636 5.636m12.728 0l-1.414 1.414M7.05 16.95l-1.414 1.414M12 8a4 4 0 100 8 4 4 0 000-8z"/>
+                    </svg>
+                </button>
+
+                <button id="langToggleMobile" class="px-4 py-1.5 font-semibold rounded-full bg-slate-900/80 text-slate-300 border border-slate-500/60 transition-all duration-300 relative overflow-hidden hover:text-slate-900 hover:bg-emerald-400 hover:border-emerald-400 hover:shadow-[0_0_12px_rgba(52,211,153,0.55)] hover:-translate-y-0.5 leading-none select-none">
+                    MK
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="pt-[80px] md:pt-28 lg:pt-24 xl:pt-24 pb-10 flex-grow overflow-x-hidden">
+        <section class="max-w-[1200px] mx-auto px-4 sm:px-8">
+            <div class="text-center mb-10">
+                <h2 class="font-mono text-xl sm:text-2xl font-bold flex items-center justify-center gap-2 select-none">
+                    <span class="text-slate-400">&lt;</span>
+                    <span class="text-emerald-400" data-translate="bio_page_title"></span>
+                    <span class="text-slate-400">/&gt;</span>
+                </h2>
+                <p class="mt-2 text-sm text-slate-400" data-translate="bio_page_subtitle">
+                    My journey in the world of programming
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div class="relative order-2 lg:order-1 transform hover:scale-[1.01] transition-all duration-300">
+                    <div class="absolute -inset-1 bg-gradient-to-br from-emerald-500/15 via-sky-500/10 to-purple-500/15 blur-xl opacity-70"></div>
+                    <div class="relative rounded-2xl border border-slate-800 bg-slate-900/80 p-6 sm:p-8 shadow-xl backdrop-blur-sm">
+                        <h3 class="font-mono text-lg sm:text-xl text-emerald-400 mb-4" data-translate="bio_title"></h3>
+
+                        <div class="text-slate-300 text-[15px] leading-relaxed space-y-4">
+
+                            <p data-translate="bio_p1">
+                                My name is <strong class="text-emerald-300">Nikola Sarafimov</strong>,
+                                and I’m a fourth-year Computer Science & Software Engineering student at
+                                <strong class="text-emerald-300">FCSE – Skopje</strong>. I live in Skopje, Macedonia,
+                                where I study, build projects, and continuously grow as a developer.
+                            </p>
+
+                            <p data-translate="bio_p2">
+                                Before tech, I graduated from high school as a
+                                <strong class="text-emerald-300">laboratory technician</strong>, gaining discipline,
+                                precision, and responsibility — skills that transitioned naturally into programming.
+                            </p>
+
+                            <p data-translate="bio_p3">
+                                My main interest is <strong class="text-emerald-300">Full-stack Development</strong>.
+                                I enjoy creating clean, modern applications using React, Spring Boot, .NET Core, Django,
+                                Python, C#, Java, HTML, CSS, JavaScript, and Flutter.
+                            </p>
+
+                            <p data-translate="bio_p4">
+                                My long-term goal is to grow as a
+                                <strong class="text-emerald-300">Full-Stack Web Developer</strong>, contributing
+                                both independently and as part of a team.
+                            </p>
+
+                            <p data-translate="bio_p5">
+                                Outside the world of code, I enjoy <strong>video editing</strong>, sports,
+                                reading, and hanging out with friends. These hobbies keep me creative,
+                                balanced, and inspired.
+                            </p>
+
+                            <p class="pt-1">
+                                <span class="text-slate-400 font-mono" data-translate="bio_status_label">status:</span>
+                                <span class="text-amber-300 font-mono" data-translate="bio_status">"Open for opportunities"</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative order-1 lg:order-2 transform hover:scale-[1.015] transition-all duration-300">
+                    <div class="absolute -inset-2 bg-gradient-to-tr from-emerald-500/25 via-sky-500/20 to-purple-500/25 blur-2xl opacity-80"></div>
+
+                    <div class="relative w-full h-auto min-h-[360px] rounded-2xl overflow-hidden border border-slate-800 bg-slate-900/60 shadow-2xl">
+                        <img src="images/image.jpg" class="w-full h-full object-cover select-none">
+
+                        <span class="absolute bottom-3 right-4 bg-emerald-500/20 text-emerald-300 text-xs font-mono px-3 py-1 rounded-lg border border-emerald-500/30">
+                        Developer.exe
+                    </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-auto border-t border-slate-800 bg-slate-900/40 backdrop-blur-xl">
+        <div class="w-full px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-6">
+            <p class="text-sm text-slate-400 text-center md:text-left">
+                © <span id="year"></span> <span id="footerName"></span>. <span id="footerText"></span>
+            </p>
+
+            <div class="flex items-center gap-6">
+                <a data-translate="footer_privacy" id="privacyLink" href="privacy.html" class="text-sm text-slate-400 hover:text-emerald-400 transition-colors"></a>
+                <a data-translate="footer_terms" id="termsLink" href="terms.html" class="text-sm text-slate-400 hover:text-emerald-400 transition-colors"></a>
+
+                <a href="https://github.com/nikolasarafimov" target="_blank" class="text-xl hover:text-emerald-400 transition-colors"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/nikola-sarafimov-418753357/" target="_blank" class="text-xl hover:text-emerald-400 transition-colors"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/nikolasarafimov/" target="_blank" class="text-xl hover:text-emerald-400 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="mailto:sarafimov.nikola12345@gmail.com" target="_blank" class="text-xl hover:text-emerald-400 transition-colors"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/translations.js"></script>
+    <script>
+        let currentLang = localStorage.getItem("siteLang") || "en";
+
+        function applyTranslations() {
+            document.querySelectorAll("[data-translate]").forEach(el => {
+                const key = el.getAttribute("data-translate");
+                if (translations[currentLang][key]) {
+                    el.innerHTML = translations[currentLang][key];
+                }
+            });
+        }
+
+        function updateLegalLinks() {
+            const privacy = document.getElementById("privacyLink");
+            const terms = document.getElementById("termsLink");
+            if (!privacy || !terms) return;
+
+            if (currentLang === "mk") {
+                privacy.href = "privacy-mk.html";
+                terms.href = "terms-mk.html";
+            } else {
+                privacy.href = "privacy.html";
+                terms.href = "terms.html";
+            }
+        }
+
+        function updateLanguageButton() {
+            const langBtn = document.getElementById("langToggle");
+            const langBtnMobile = document.getElementById("langToggleMobile");
+            if (langBtn) langBtn.textContent = currentLang === "en" ? "MK" : "EN";
+            if (langBtnMobile) langBtnMobile.textContent = currentLang === "en" ? "MK" : "EN";
+        }
+
+        function updateFooterName() {
+            const footerName = document.getElementById("footerName");
+            if (footerName) footerName.textContent = translations[currentLang].footer_name;
+        }
+
+        function updateFooterText() {
+            const footerText = document.getElementById("footerText");
+            if (footerText) footerText.textContent = translations[currentLang].footer_full;
+        }
+
+        function switchLanguage() {
+            currentLang = currentLang === "en" ? "mk" : "en";
+            localStorage.setItem("siteLang", currentLang);
+            applyTranslations();
+            updateLegalLinks();
+            updateLanguageButton();
+            updateFooterName();
+            updateFooterText();
+
+            const langBtn = document.getElementById("langToggle");
+            const langBtnMobile = document.getElementById("langToggleMobile");
+
+            if (langBtn) {
+                langBtn.classList.add("lang-pop");
+                setTimeout(() => langBtn.classList.remove("lang-pop"), 250);
+            }
+            if (langBtnMobile) {
+                langBtnMobile.classList.add("lang-pop");
+                setTimeout(() => langBtnMobile.classList.remove("lang-pop"), 250);
+            }
+        }
+
+        applyTranslations();
+        updateLegalLinks();
+        updateLanguageButton();
+        updateFooterName();
+        updateFooterText();
+
+        document.getElementById("langToggle")?.addEventListener("click", switchLanguage);
+        document.getElementById("langToggleMobile")?.addEventListener("click", switchLanguage);
+
+        const startYear = 2023;
+        const currentYear = new Date().getFullYear();
+        document.getElementById("year").textContent =
+            currentYear === startYear ? `${startYear}` : `${startYear}–${currentYear}`;
+
+        const navToggle = document.getElementById("navToggle");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const navIconOpen = document.getElementById("navIconOpen");
+        const navIconClose = document.getElementById("navIconClose");
+
+        if (navToggle && mobileMenu && navIconOpen && navIconClose) {
+            navToggle.addEventListener("click", () => {
+                mobileMenu.classList.toggle("menu-open");
+                navIconOpen.classList.toggle("hidden");
+                navIconClose.classList.toggle("hidden");
+            });
+        }
+
+        const root = document.documentElement;
+        const themeToggle = document.getElementById("themeToggle");
+        const themeToggleMobile = document.getElementById("themeToggleMobile");
+        const iconMoon = document.getElementById("iconMoon");
+        const iconSun = document.getElementById("iconSun");
+        const iconMoonMobile = document.getElementById("iconMoonMobile");
+        const iconSunMobile = document.getElementById("iconSunMobile");
+
+        function animateIcon(icon) {
+            if (!icon) return;
+            icon.classList.add("theme-rotate");
+            setTimeout(() => icon.classList.remove("theme-rotate"), 500);
+        }
+
+        function updateThemeIcons() {
+            const isDark = root.classList.contains("dark");
+
+            if (iconMoon && iconSun) {
+                iconMoon.classList.toggle("hidden", isDark);
+                iconSun.classList.toggle("hidden", !isDark);
+                animateIcon(isDark ? iconSun : iconMoon);
+            }
+
+            if (iconMoonMobile && iconSunMobile) {
+                iconMoonMobile.classList.toggle("hidden", isDark);
+                iconSunMobile.classList.toggle("hidden", !isDark);
+                animateIcon(isDark ? iconSunMobile : iconMoonMobile);
+            }
+        }
+
+        if (iconMoon) iconMoon.classList.add("theme-initial-load");
+        if (iconSun) iconSun.classList.add("theme-initial-load");
+        if (iconMoonMobile) iconMoonMobile.classList.add("theme-initial-load");
+        if (iconSunMobile) iconSunMobile.classList.add("theme-initial-load");
+
+        function toggleTheme() {
+            root.classList.toggle("dark");
+            localStorage.setItem("theme", root.classList.contains("dark") ? "dark" : "light");
+            updateThemeIcons();
+        }
+
+        if (localStorage.getItem("theme") === "light") {
+            root.classList.remove("dark");
+        }
+
+        updateThemeIcons();
+
+        if (themeToggle) themeToggle.onclick = toggleTheme;
+        if (themeToggleMobile) themeToggleMobile.onclick = toggleTheme;
+
+        function markActiveNav() {
+            let path = window.location.pathname.split("/").pop().toLowerCase();
+            if (path === "" || path === "/") path = "biography.html";
+
+            const links = document.querySelectorAll("a[href]");
+            links.forEach(link => {
+                const href = link.getAttribute("href");
+                if (!href) return;
+
+                const file = href.split("/").pop().toLowerCase();
+                if (file === path) {
+                    if (link.closest("nav")) {
+                        link.classList.add(
+                            "text-emerald-400",
+                            "font-semibold",
+                            "[text-shadow:0_0_8px_rgba(52,211,153,0.9)]"
+                        );
+                    }
+                    if (link.closest("#mobileMenu")) {
+                        link.classList.add("text-emerald-400", "font-semibold");
+                    }
+                }
+            });
+        }
+        markActiveNav();
+    </script>
+</body>
+</html>
