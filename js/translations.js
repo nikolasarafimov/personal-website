@@ -48,7 +48,7 @@ const translations = {
         bio_status: "\"Open for opportunities\"",
 
         skills_title: "Skills",
-        skills_subtitle: "Technologies and concepts I use to design, build, and maintain modern applications.",
+        skills_subtitle: "Technologies and concepts I use to design, build, and maintain modern applications",
 
         skills_languages_title: "Languages",
         skills_languages_text: "Strong foundation in modern programming languages for frontend, backend, and mobile.",
@@ -68,8 +68,12 @@ const translations = {
         skills_practices_title: "Practices & Concepts",
         skills_practices_text: "Approaches for building maintainable, scalable applications.",
 
+        portfolio_title: "Portfolio",
+        portfolio_subtitle: "A selection of projects that showcase how I think about design, code structure, and modern web development",
+        portfolio_button: "View all projects on GitHub",
+
         contact_title: "Contact",
-        contact_subtitle: "Feel free to reach out — I usually reply within a day.",
+        contact_subtitle: "Feel free to reach out — I usually reply within a day",
         contact_getintouch_title: "Get in Touch",
         contact_getintouch_text: "If you have a project idea, collaboration request, or simply want to say hello, you can always contact me through the form or social links below.",
         contact_label_email: "Email",
@@ -138,7 +142,7 @@ const translations = {
         bio_status: "\"Отворен за можности\"",
 
         skills_title: "Вештини",
-        skills_subtitle: "Технологии и концепти што ги користам за дизајн, развој и одржување на модерни апликации.",
+        skills_subtitle: "Технологии и концепти што ги користам за дизајн, развој и одржување на модерни апликации",
 
         skills_languages_title: "Јазици",
         skills_languages_text: "Цврста основа во современи програмски јазици за фронтенд, бекенд и мобилни апликации.",
@@ -158,8 +162,12 @@ const translations = {
         skills_practices_title: "Практики и Концепти",
         skills_practices_text: "Пристапи за создавање одржливи и скалабилни апликации.",
 
+        portfolio_title: "Портфолио",
+        portfolio_subtitle: "Избор на проекти што го покажуваат моето размислување за дизајнот, структурата на кодот и модерниот веб-развој",
+        portfolio_button: "Погледнете ги сите проекти на GitHub",
+
         contact_title: "Контакт",
-        contact_subtitle: "Слободно контактирај ме — обично одговарам во рок од еден ден.",
+        contact_subtitle: "Слободно контактирај ме — обично одговарам во рок од еден ден",
         contact_getintouch_title: "Контактирај ме",
         contact_getintouch_text: "Доколку имаш идеја за проект, сакаш соработка или само да се поздравиш, можеш да ме контактираш преку формуларот или социјалните мрежи подолу.",
         contact_label_email: "Емаил адреса",

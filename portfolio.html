@@ -79,6 +79,16 @@
                 transform: perspective(1100px) rotateX(4deg) rotateY(-4deg) translateY(-6px);
             }
         }
+        :root:not(.dark) .project-chip {
+            background: linear-gradient(
+                    135deg,
+                    rgba(255, 255, 255, 0.9),
+                    rgba(244, 244, 245, 0.9)
+            ) !important;
+            border-color: rgba(148, 163, 184, 0.35) !important;
+            color: #1e293b !important; /* slate-800 */
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
         .project-chip {
             display: inline-flex;
             align-items: center;
@@ -226,62 +236,74 @@
             <div class="text-center mb-6 select-none">
                 <h2 class="font-mono text-xl sm:text-2xl font-bold flex items-center justify-center gap-2">
                     <span class="text-slate-400">&lt;</span>
-                    <span class="text-emerald-400">Portfolio</span>
+                    <span class="text-emerald-400" data-translate="portfolio_title"></span>
                     <span class="text-slate-400">/&gt;</span>
                 </h2>
-                <p class="mt-2 text-sm text-slate-400">
-                    A selection of projects that showcase how I think about design, code structure, and modern web development.
-                </p>
+                <p class="mt-2 text-sm text-slate-400" data-translate="portfolio_subtitle"></p>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="relative group">
                     <div class="absolute -inset-[1px] bg-gradient-to-br from-sky-400/35 via-emerald-400/25 to-purple-500/35 blur-xl opacity-70 group-hover:opacity-100 transition"></div>
-                    <article class="relative project-card rounded-2xl overflow-hidden">
-                        <div class="flex items-center justify-between px-4 py-2 border-b border-slate-800/70 bg-slate-900/80">
+
+                    <article class="relative rounded-2xl overflow-hidden
+                       bg-white/60 dark:bg-slate-900/80
+                       border border-slate-200/70 dark:border-slate-800/70
+                       shadow-[0_4px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_0_25px_rgba(0,0,0,0.45)]
+                       backdrop-blur-xl
+                       transition-all duration-300
+                       hover:-translate-y-[4px] hover:scale-[1.01]
+                       hover:shadow-[0_12px_40px_rgba(56,189,248,0.22)] dark:hover:shadow-[0_0_45px_rgba(16,185,129,0.45)]">
+
+                        <div class="flex items-center justify-between px-4 py-2
+                        border-b border-slate-300/70 dark:border-slate-800/70
+                        bg-slate-100/80 dark:bg-slate-900/80">
                             <div class="flex items-center gap-1.5">
-                                <span class="h-2.5 w-2.5 rounded-full bg-red-500/80"></span>
-                                <span class="h-2.5 w-2.5 rounded-full bg-amber-400/80"></span>
-                                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400/80"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-red-500"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
                             </div>
                             <span class="text-[0.65rem] font-mono text-slate-500 select-none">project_01.jsx</span>
                         </div>
 
                         <div class="relative h-40 sm:h-44 md:h-48 overflow-hidden">
-                            <img src="images/project-1.png" alt="Social Media Platform UI"
+                            <img src="images/project-1.png"
                                  class="w-full h-full object-cover select-none transform group-hover:scale-[1.03] transition-transform duration-500 ease-out">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-slate-950/10 to-transparent pointer-events-none"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t
+                            from-white/70 via-transparent to-transparent
+                            dark:from-slate-950/70 dark:via-slate-950/10"></div>
                         </div>
 
                         <div class="px-5 sm:px-6 pt-4 pb-5 sm:pb-6">
+
                             <div class="flex items-center justify-between mb-2">
-                                <p class="text-xs font-mono text-emerald-400">&gt; project_01</p>
+                                <p class="text-xs font-mono text-emerald-600 dark:text-emerald-400">&gt; project_01</p>
                                 <span class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-500">Full-stack</span>
                             </div>
 
-                            <h3 class="text-lg font-semibold text-slate-50 mb-1">
-                                <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-300 via-sky-300 to-purple-300">
+                            <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-50 mb-1">
+                                <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 via-sky-500 to-purple-500 dark:from-emerald-300 dark:via-sky-300 dark:to-purple-300">
                                     Social Media Platform
                                 </span>
                             </h3>
-                            <p class="text-sm text-slate-400 mb-4">
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
                                 Full-featured social networking platform with real-time messaging, content sharing, and rich user profiles.
                             </p>
 
                             <div class="project-accent-line mb-4"></div>
 
                             <div class="flex flex-wrap gap-2 mb-4 text-xs">
-                                <span class="project-chip text-emerald-300 border-emerald-400/70">React</span>
-                                <span class="project-chip text-sky-300 border-sky-400/70">Firebase</span>
-                                <span class="project-chip text-purple-200 border-purple-300/70">Redux</span>
+                                <span class="project-chip bg-emerald-500/10 text-emerald-600 border border-emerald-300 dark:text-emerald-300 dark:border-emerald-400/70">React</span>
+                                <span class="project-chip bg-sky-500/10 text-sky-600 border border-sky-300 dark:text-sky-300 dark:border-sky-400/70">Firebase</span>
+                                <span class="project-chip bg-purple-500/10 text-purple-600 border border-purple-300 dark:text-purple-200 dark:border-purple-300/70">Redux</span>
                             </div>
 
                             <div class="flex items-center justify-between text-xs">
-                                <a href="#" class="flex items-center gap-1 text-emerald-300 hover:text-emerald-200 transition-colors">
+                                <a href="#" class="flex items-center gap-1 text-emerald-600 dark:text-emerald-300 hover:text-emerald-700 dark:hover:text-emerald-200">
                                     <i class="fa-solid fa-arrow-up-right-from-square text-[0.75rem]"></i>
                                     <span>Live Demo</span>
                                 </a>
-                                <a href="#" class="flex items-center gap-1 text-slate-400 hover:text-slate-200 transition-colors">
+                                <a href="#" class="flex items-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200">
                                     <i class="fa-brands fa-github text-[0.85rem]"></i>
                                     <span>Source Code</span>
                                 </a>
@@ -293,51 +315,65 @@
                 <div class="relative group">
                     <div class="absolute -inset-[1px] bg-gradient-to-br from-emerald-400/35 via-sky-500/25 to-purple-500/35 blur-xl opacity-70 group-hover:opacity-100 transition"></div>
 
-                    <article class="relative project-card rounded-2xl overflow-hidden">
-                        <div class="flex items-center justify-between px-4 py-2 border-b border-slate-800/70 bg-slate-900/80">
+                    <article class="relative rounded-2xl overflow-hidden
+                       bg-white/60 dark:bg-slate-900/80
+                       border border-slate-200/70 dark:border-slate-800/70
+                       shadow-[0_4px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_0_25px_rgba(0,0,0,0.45)]
+                       backdrop-blur-xl
+                       transition-all duration-300
+                       hover:-translate-y-[4px] hover:scale-[1.01]
+                       hover:shadow-[0_12px_40px_rgba(56,189,248,0.22)] dark:hover:shadow-[0_0_45px_rgba(16,185,129,0.45)]">
+
+                        <div class="flex items-center justify-between px-4 py-2
+                        border-b border-slate-300/70 dark:border-slate-800/70
+                        bg-slate-100/80 dark:bg-slate-900/80">
                             <div class="flex items-center gap-1.5">
-                                <span class="h-2.5 w-2.5 rounded-full bg-red-500/80"></span>
-                                <span class="h-2.5 w-2.5 rounded-full bg-amber-400/80"></span>
-                                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400/80"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-red-500"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
                             </div>
                             <span class="text-[0.65rem] font-mono text-slate-500 select-none">project_02.tsx</span>
                         </div>
 
                         <div class="relative h-40 sm:h-44 md:h-48 overflow-hidden">
-                            <img src="images/project-2.png" alt="Task Management App UI"
+                            <img src="images/project-2.png"
                                  class="w-full h-full object-cover select-none transform group-hover:scale-[1.03] transition-transform duration-500 ease-out">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/15 to-transparent pointer-events-none"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t
+                            from-white/70 via-transparent to-transparent
+                            dark:from-slate-950/75 dark:via-slate-950/15"></div>
                         </div>
 
                         <div class="px-5 sm:px-6 pt-4 pb-5 sm:pb-6">
+
                             <div class="flex items-center justify-between mb-2">
-                                <p class="text-xs font-mono text-emerald-400">&gt; project_02</p>
+                                <p class="text-xs font-mono text-emerald-600 dark:text-emerald-400">&gt; project_02</p>
                                 <span class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-500">Productivity</span>
                             </div>
 
-                            <h3 class="text-lg font-semibold text-slate-50 mb-1">
-                                <span class="bg-clip-text text-transparent bg-gradient-to-r from-sky-300 via-emerald-300 to-purple-300">
+                            <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-50 mb-1">
+                                <span class="bg-clip-text text-transparent bg-gradient-to-r from-sky-500 via-emerald-500 to-purple-500 dark:from-sky-300 dark:via-emerald-300 dark:to-purple-300">
                                     Task Management App
                                 </span>
                             </h3>
-                            <p class="text-sm text-slate-400 mb-4">
+
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
                                 Kanban-style board with drag-and-drop tasks, real-time updates, and team collaboration features.
                             </p>
 
                             <div class="project-accent-line mb-4"></div>
 
                             <div class="flex flex-wrap gap-2 mb-4 text-xs">
-                                <span class="project-chip text-emerald-300 border-emerald-400/70">Vue.js</span>
-                                <span class="project-chip text-sky-300 border-sky-400/70">TypeScript</span>
-                                <span class="project-chip text-purple-200 border-purple-300/70">Socket.io</span>
+                                <span class="project-chip bg-emerald-500/10 text-emerald-600 border border-emerald-300 dark:text-emerald-300 dark:border-emerald-400/70">Vue.js</span>
+                                <span class="project-chip bg-sky-500/10 text-sky-600 border border-sky-300 dark:text-sky-300 dark:border-sky-400/70">TypeScript</span>
+                                <span class="project-chip bg-purple-500/10 text-purple-600 border border-purple-300 dark:text-purple-200 dark:border-purple-300/70">Socket.io</span>
                             </div>
 
                             <div class="flex items-center justify-between text-xs">
-                                <a href="#" class="flex items-center gap-1 text-emerald-300 hover:text-emerald-200 transition-colors">
+                                <a href="#" class="flex items-center gap-1 text-emerald-600 dark:text-emerald-300 hover:text-emerald-700 dark:hover:text-emerald-200">
                                     <i class="fa-solid fa-arrow-up-right-from-square text-[0.75rem]"></i>
                                     <span>Live Demo</span>
                                 </a>
-                                <a href="#" class="flex items-center gap-1 text-slate-400 hover:text-slate-200 transition-colors">
+                                <a href="#" class="flex items-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200">
                                     <i class="fa-brands fa-github text-[0.85rem]"></i>
                                     <span>Source Code</span>
                                 </a>
@@ -349,51 +385,65 @@
                 <div class="relative group">
                     <div class="absolute -inset-[1px] bg-gradient-to-br from-sky-400/35 via-teal-400/25 to-emerald-500/35 blur-xl opacity-70 group-hover:opacity-100 transition"></div>
 
-                    <article class="relative project-card rounded-2xl overflow-hidden">
-                        <div class="flex items-center justify-between px-4 py-2 border-b border-slate-800/70 bg-slate-900/80">
+                    <article class="relative rounded-2xl overflow-hidden
+                       bg-white/60 dark:bg-slate-900/80
+                       border border-slate-200/70 dark:border-slate-800/70
+                       shadow-[0_4px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_0_25px_rgba(0,0,0,0.45)]
+                       backdrop-blur-xl
+                       transition-all duration-300
+                       hover:-translate-y-[4px] hover:scale-[1.01]
+                       hover:shadow-[0_12px_40px_rgba(56,189,248,0.22)] dark:hover:shadow-[0_0_45px_rgba(16,185,129,0.45)]">
+
+                        <div class="flex items-center justify-between px-4 py-2
+                        border-b border-slate-300/70 dark:border-slate-800/70
+                        bg-slate-100/80 dark:bg-slate-900/80">
                             <div class="flex items-center gap-1.5">
-                                <span class="h-2.5 w-2.5 rounded-full bg-red-500/80"></span>
-                                <span class="h-2.5 w-2.5 rounded-full bg-amber-400/80"></span>
-                                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400/80"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-red-500"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
                             </div>
                             <span class="text-[0.65rem] font-mono text-slate-500 select-none">project_03.jsx</span>
                         </div>
 
                         <div class="relative h-40 sm:h-44 md:h-48 overflow-hidden">
-                            <img src="images/project-3.png" alt="Weather Analytics Dashboard UI"
+                            <img src="images/project-3.png"
                                  class="w-full h-full object-cover select-none transform group-hover:scale-[1.03] transition-transform duration-500 ease-out">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/15 to-transparent pointer-events-none"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t
+                            from-white/70 via-transparent to-transparent
+                            dark:from-slate-950/75 dark:via-slate-950/15"></div>
                         </div>
 
                         <div class="px-5 sm:px-6 pt-4 pb-5 sm:pb-6">
+
                             <div class="flex items-center justify-between mb-2">
-                                <p class="text-xs font-mono text-emerald-400">&gt; project_03</p>
+                                <p class="text-xs font-mono text-emerald-600 dark:text-emerald-400">&gt; project_03</p>
                                 <span class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-500">Analytics</span>
                             </div>
 
-                            <h3 class="text-lg font-semibold text-slate-50 mb-1">
-                                <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-300 via-sky-300 to-blue-300">
+                            <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-50 mb-1">
+                                <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 via-sky-500 to-blue-500 dark:from-emerald-300 dark:via-sky-300 dark:to-blue-300">
                                     Weather Analytics
                                 </span>
                             </h3>
-                            <p class="text-sm text-slate-400 mb-4">
+
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
                                 Interactive dashboard with real-time weather data, charts, and location-based forecasts.
                             </p>
 
                             <div class="project-accent-line mb-4"></div>
 
                             <div class="flex flex-wrap gap-2 mb-4 text-xs">
-                                <span class="project-chip text-emerald-300 border-emerald-400/70">React</span>
-                                <span class="project-chip text-sky-300 border-sky-400/70">Chart.js</span>
-                                <span class="project-chip text-purple-200 border-purple-300/70">API</span>
+                                <span class="project-chip bg-emerald-500/10 text-emerald-600 border border-emerald-300 dark:text-emerald-300 dark:border-emerald-400/70">React</span>
+                                <span class="project-chip bg-sky-500/10 text-sky-600 border border-sky-300 dark:text-sky-300 dark:border-sky-400/70">Chart.js</span>
+                                <span class="project-chip bg-purple-500/10 text-purple-600 border border-purple-300 dark:text-purple-200 dark:border-purple-300/70">API</span>
                             </div>
 
                             <div class="flex items-center justify-between text-xs">
-                                <a href="#" class="flex items-center gap-1 text-emerald-300 hover:text-emerald-200 transition-colors">
+                                <a href="#" class="flex items-center gap-1 text-emerald-600 dark:text-emerald-300 hover:text-emerald-700 dark:hover:text-emerald-200">
                                     <i class="fa-solid fa-arrow-up-right-from-square text-[0.75rem]"></i>
                                     <span>Live Demo</span>
                                 </a>
-                                <a href="#" class="flex items-center gap-1 text-slate-400 hover:text-slate-200 transition-colors">
+                                <a href="#" class="flex items-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200">
                                     <i class="fa-brands fa-github text-[0.85rem]"></i>
                                     <span>Source Code</span>
                                 </a>
@@ -405,51 +455,65 @@
                 <div class="relative group">
                     <div class="absolute -inset-[1px] bg-gradient-to-br from-purple-500/35 via-pink-400/25 to-emerald-400/35 blur-xl opacity-70 group-hover:opacity-100 transition"></div>
 
-                    <article class="relative project-card rounded-2xl overflow-hidden">
-                        <div class="flex items-center justify-between px-4 py-2 border-b border-slate-800/70 bg-slate-900/80">
+                    <article class="relative rounded-2xl overflow-hidden
+                       bg-white/60 dark:bg-slate-900/80
+                       border border-slate-200/70 dark:border-slate-800/70
+                       shadow-[0_4px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_0_25px_rgba(0,0,0,0.45)]
+                       backdrop-blur-xl
+                       transition-all duration-300
+                       hover:-translate-y-[4px] hover:scale-[1.01]
+                       hover:shadow-[0_12px_40px_rgba(56,189,248,0.22)] dark:hover:shadow-[0_0_45px_rgba(16,185,129,0.45)]">
+
+                        <div class="flex items-center justify-between px-4 py-2
+                        border-b border-slate-300/70 dark:border-slate-800/70
+                        bg-slate-100/80 dark:bg-slate-900/80">
                             <div class="flex items-center gap-1.5">
-                                <span class="h-2.5 w-2.5 rounded-full bg-red-500/80"></span>
-                                <span class="h-2.5 w-2.5 rounded-full bg-amber-400/80"></span>
-                                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400/80"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-red-500"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
                             </div>
                             <span class="text-[0.65rem] font-mono text-slate-500 select-none">project_04.jsx</span>
                         </div>
 
                         <div class="relative h-40 sm:h-44 md:h-48 overflow-hidden">
-                            <img src="images/project-4.png" alt="Social Media Dashboard UI"
+                            <img src="images/project-4.png"
                                  class="w-full h-full object-cover select-none transform group-hover:scale-[1.03] transition-transform duration-500 ease-out">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/15 to-transparent pointer-events-none"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t
+                            from-white/70 via-transparent to-transparent
+                            dark:from-slate-950/75 dark:via-slate-950/15"></div>
                         </div>
 
                         <div class="px-5 sm:px-6 pt-4 pb-5 sm:pb-6">
+
                             <div class="flex items-center justify-between mb-2">
-                                <p class="text-xs font-mono text-emerald-400">&gt; project_04</p>
+                                <p class="text-xs font-mono text-emerald-600 dark:text-emerald-400">&gt; project_04</p>
                                 <span class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-500">Dashboard</span>
                             </div>
 
-                            <h3 class="text-lg font-semibold text-slate-50 mb-1">
-                                <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-300 via-emerald-300 to-sky-300">
+                            <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-50 mb-1">
+                                <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-500 via-emerald-500 to-sky-500 dark:from-purple-300 dark:via-emerald-300 dark:to-sky-300">
                                     Social Media Dashboard
                                 </span>
                             </h3>
-                            <p class="text-sm text-slate-400 mb-4">
+
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
                                 Analytics dashboard with engagement metrics, scheduling tools, and multi-platform overview.
                             </p>
 
                             <div class="project-accent-line mb-4"></div>
 
                             <div class="flex flex-wrap gap-2 mb-4 text-xs">
-                                <span class="project-chip text-emerald-300 border-emerald-400/70">Next.js</span>
-                                <span class="project-chip text-sky-300 border-sky-400/70">Python</span>
-                                <span class="project-chip text-purple-200 border-purple-300/70">PostgreSQL</span>
+                                <span class="project-chip bg-emerald-500/10 text-emerald-600 border border-emerald-300 dark:text-emerald-300 dark:border-emerald-400/70">Next.js</span>
+                                <span class="project-chip bg-sky-500/10 text-sky-600 border border-sky-300 dark:text-sky-300 dark:border-sky-400/70">Python</span>
+                                <span class="project-chip bg-purple-500/10 text-purple-600 border border-purple-300 dark:text-purple-200 dark:border-purple-300/70">PostgreSQL</span>
                             </div>
 
                             <div class="flex items-center justify-between text-xs">
-                                <a href="#" class="flex items-center gap-1 text-emerald-300 hover:text-emerald-200 transition-colors">
+                                <a href="#" class="flex items-center gap-1 text-emerald-600 dark:text-emerald-300 hover:text-emerald-700 dark:hover:text-emerald-200">
                                     <i class="fa-solid fa-arrow-up-right-from-square text-[0.75rem]"></i>
                                     <span>Live Demo</span>
                                 </a>
-                                <a href="#" class="flex items-center gap-1 text-slate-400 hover:text-slate-200 transition-colors">
+                                <a href="#" class="flex items-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200">
                                     <i class="fa-brands fa-github text-[0.85rem]"></i>
                                     <span>Source Code</span>
                                 </a>
@@ -461,51 +525,65 @@
                 <div class="relative group">
                     <div class="absolute -inset-[1px] bg-gradient-to-br from-emerald-300/35 via-sky-400/25 to-blue-500/35 blur-xl opacity-70 group-hover:opacity-100 transition"></div>
 
-                    <article class="relative project-card rounded-2xl overflow-hidden">
-                        <div class="flex items-center justify-between px-4 py-2 border-b border-slate-800/70 bg-slate-900/80">
+                    <article class="relative rounded-2xl overflow-hidden
+                       bg-white/60 dark:bg-slate-900/80
+                       border border-slate-200/70 dark:border-slate-800/70
+                       shadow-[0_4px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_0_25px_rgba(0,0,0,0.45)]
+                       backdrop-blur-xl
+                       transition-all duration-300
+                       hover:-translate-y-[4px] hover:scale-[1.01]
+                       hover:shadow-[0_12px_40px_rgba(56,189,248,0.22)] dark:hover:shadow-[0_0_45px_rgba(16,185,129,0.45)]">
+
+                        <div class="flex items-center justify-between px-4 py-2
+                        border-b border-slate-300/70 dark:border-slate-800/70
+                        bg-slate-100/80 dark:bg-slate-900/80">
                             <div class="flex items-center gap-1.5">
-                                <span class="h-2.5 w-2.5 rounded-full bg-red-500/80"></span>
-                                <span class="h-2.5 w-2.5 rounded-full bg-amber-400/80"></span>
-                                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400/80"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-red-500"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
                             </div>
                             <span class="text-[0.65rem] font-mono text-slate-500 select-none">project_05.py</span>
                         </div>
 
                         <div class="relative h-40 sm:h-44 md:h-48 overflow-hidden">
-                            <img src="images/project-5.png" alt="Learning Management System UI"
+                            <img src="images/project-5.png"
                                  class="w-full h-full object-cover select-none transform group-hover:scale-[1.03] transition-transform duration-500 ease-out">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/15 to-transparent pointer-events-none"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t
+                            from-white/70 via-transparent to-transparent
+                            dark:from-slate-950/75 dark:via-slate-950/15"></div>
                         </div>
 
                         <div class="px-5 sm:px-6 pt-4 pb-5 sm:pb-6">
+
                             <div class="flex items-center justify-between mb-2">
-                                <p class="text-xs font-mono text-emerald-400">&gt; project_05</p>
+                                <p class="text-xs font-mono text-emerald-600 dark:text-emerald-400">&gt; project_05</p>
                                 <span class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-500">Education</span>
                             </div>
 
-                            <h3 class="text-lg font-semibold text-slate-50 mb-1">
-                                <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-300 via-sky-300 to-purple-300">
+                            <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-50 mb-1">
+                                <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 via-sky-500 to-purple-500 dark:from-emerald-300 dark:via-sky-300 dark:to-purple-300">
                                     Learning Management System
                                 </span>
                             </h3>
-                            <p class="text-sm text-slate-400 mb-4">
+
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
                                 Platform for managing courses, tracking student progress, and delivering interactive learning modules.
                             </p>
 
                             <div class="project-accent-line mb-4"></div>
 
                             <div class="flex flex-wrap gap-2 mb-4 text-xs">
-                                <span class="project-chip text-emerald-300 border-emerald-400/70">Django</span>
-                                <span class="project-chip text-sky-300 border-sky-400/70">React</span>
-                                <span class="project-chip text-purple-200 border-purple-300/70">MySQL</span>
+                                <span class="project-chip bg-emerald-500/10 text-emerald-600 border border-emerald-300 dark:text-emerald-300 dark:border-emerald-400/70">Django</span>
+                                <span class="project-chip bg-sky-500/10 text-sky-600 border border-sky-300 dark:text-sky-300 dark:border-sky-400/70">React</span>
+                                <span class="project-chip bg-purple-500/10 text-purple-600 border border-purple-300 dark:text-purple-200 dark:border-purple-300/70">MySQL</span>
                             </div>
 
                             <div class="flex items-center justify-between text-xs">
-                                <a href="#" class="flex items-center gap-1 text-emerald-300 hover:text-emerald-200 transition-colors">
+                                <a href="#" class="flex items-center gap-1 text-emerald-600 dark:text-emerald-300 hover:text-emerald-700 dark:hover:text-emerald-200">
                                     <i class="fa-solid fa-arrow-up-right-from-square text-[0.75rem]"></i>
                                     <span>Live Demo</span>
                                 </a>
-                                <a href="#" class="flex items-center gap-1 text-slate-400 hover:text-slate-200 transition-colors">
+                                <a href="#" class="flex items-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200">
                                     <i class="fa-brands fa-github text-[0.85rem]"></i>
                                     <span>Source Code</span>
                                 </a>
@@ -517,51 +595,65 @@
                 <div class="relative group">
                     <div class="absolute -inset-[1px] bg-gradient-to-br from-sky-300/35 via-purple-400/25 to-emerald-300/35 blur-xl opacity-70 group-hover:opacity-100 transition"></div>
 
-                    <article class="relative project-card rounded-2xl overflow-hidden">
-                        <div class="flex items-center justify-between px-4 py-2 border-b border-slate-800/70 bg-slate-900/80">
+                    <article class="relative rounded-2xl overflow-hidden
+                       bg-white/60 dark:bg-slate-900/80
+                       border border-slate-200/70 dark:border-slate-800/70
+                       shadow-[0_4px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_0_25px_rgba(0,0,0,0.45)]
+                       backdrop-blur-xl
+                       transition-all duration-300
+                       hover:-translate-y-[4px] hover:scale-[1.01]
+                       hover:shadow-[0_12px_40px_rgba(56,189,248,0.22)] dark:hover:shadow-[0_0_45px_rgba(16,185,129,0.45)]">
+
+                        <div class="flex items-center justify-between px-4 py-2
+                        border-b border-slate-300/70 dark:border-slate-800/70
+                        bg-slate-100/80 dark:bg-slate-900/80">
                             <div class="flex items-center gap-1.5">
-                                <span class="h-2.5 w-2.5 rounded-full bg-red-500/80"></span>
-                                <span class="h-2.5 w-2.5 rounded-full bg-amber-400/80"></span>
-                                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400/80"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-red-500"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                                <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
                             </div>
                             <span class="text-[0.65rem] font-mono text-slate-500 select-none">project_06.vue</span>
                         </div>
 
                         <div class="relative h-40 sm:h-44 md:h-48 overflow-hidden">
-                            <img src="images/project-6.png" alt="Crypto Portfolio Tracker UI"
+                            <img src="images/project-6.png"
                                  class="w-full h-full object-cover select-none transform group-hover:scale-[1.03] transition-transform duration-500 ease-out">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-slate-950/15 to-transparent pointer-events-none"></div>
+                            <div class="absolute inset-0 bg-gradient-to-t
+                            from-white/70 via-transparent to-transparent
+                            dark:from-slate-950/75 dark:via-slate-950/15"></div>
                         </div>
 
                         <div class="px-5 sm:px-6 pt-4 pb-5 sm:pb-6">
+
                             <div class="flex items-center justify-between mb-2">
-                                <p class="text-xs font-mono text-emerald-400">&gt; project_06</p>
+                                <p class="text-xs font-mono text-emerald-600 dark:text-emerald-400">&gt; project_06</p>
                                 <span class="text-[0.65rem] uppercase tracking-[0.18em] text-slate-500">Finance</span>
                             </div>
 
-                            <h3 class="text-lg font-semibold text-slate-50 mb-1">
-                                <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-300 via-sky-300 to-purple-300">
+                            <h3 class="text-lg font-semibold text-slate-800 dark:text-slate-50 mb-1">
+                                <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-500 via-sky-500 to-purple-500 dark:from-emerald-300 dark:via-sky-300 dark:to-purple-300">
                                     Crypto Portfolio Tracker
                                 </span>
                             </h3>
-                            <p class="text-sm text-slate-400 mb-4">
+
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mb-4">
                                 Real-time crypto portfolio tracking with charts, price alerts, and market analytics.
                             </p>
 
                             <div class="project-accent-line mb-4"></div>
 
                             <div class="flex flex-wrap gap-2 mb-4 text-xs">
-                                <span class="project-chip text-emerald-300 border-emerald-400/70">Vue.js</span>
-                                <span class="project-chip text-sky-300 border-sky-400/70">Node.js</span>
-                                <span class="project-chip text-purple-200 border-purple-300/70">Redis</span>
+                                <span class="project-chip bg-emerald-500/10 text-emerald-600 border border-emerald-300 dark:text-emerald-300 dark:border-emerald-400/70">Vue.js</span>
+                                <span class="project-chip bg-sky-500/10 text-sky-600 border border-sky-300 dark:text-sky-300 dark:border-sky-400/70">Node.js</span>
+                                <span class="project-chip bg-purple-500/10 text-purple-600 border border-purple-300 dark:text-purple-200 dark:border-purple-300/70">Redis</span>
                             </div>
 
                             <div class="flex items-center justify-between text-xs">
-                                <a href="#" class="flex items-center gap-1 text-emerald-300 hover:text-emerald-200 transition-colors">
+                                <a href="#" class="flex items-center gap-1 text-emerald-600 dark:text-emerald-300 hover:text-emerald-700 dark:hover:text-emerald-200">
                                     <i class="fa-solid fa-arrow-up-right-from-square text-[0.75rem]"></i>
                                     <span>Live Demo</span>
                                 </a>
-                                <a href="#" class="flex items-center gap-1 text-slate-400 hover:text-slate-200 transition-colors">
+                                <a href="#" class="flex items-center gap-1 text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200">
                                     <i class="fa-brands fa-github text-[0.85rem]"></i>
                                     <span>Source Code</span>
                                 </a>
@@ -572,11 +664,9 @@
             </div>
 
             <div class="mt-10 flex justify-center">
-                <a href="https://github.com/nikolasarafimov"
-                   target="_blank"
-                   class="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-emerald-500 via-teal-400 to-sky-400 text-slate-950 font-semibold text-sm sm:text-base border border-emerald-300 shadow-[0_0_18px_rgba(52,211,153,0.65)] hover:shadow-[0_0_26px_rgba(56,189,248,0.75)] hover:-translate-y-0.5 transition-all">
+                <a href="https://github.com/nikolasarafimov" target="_blank" class="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-gradient-to-r from-emerald-500 via-teal-400 to-sky-400 text-slate-950 font-semibold text-sm sm:text-base border border-emerald-300 shadow-[0_0_18px_rgba(52,211,153,0.65)] hover:shadow-[0_0_26px_rgba(56,189,248,0.75)] hover:-translate-y-0.5 transition-all">
                     <i class="fa-brands fa-github text-lg"></i>
-                    <span>View all projects on GitHub</span>
+                    <span data-translate="portfolio_button"></span>
                 </a>
             </div>
         </section>
